@@ -8,7 +8,7 @@ import { JsonLd, practiceSchema } from '@/components/StructuredData'
 import { site } from '@/lib/site'
 
 const description =
-  'Get in touch with Soulful Horizon LCSW, PLLC. Request an appointment through our secure client portal, or reach us by phone or email.'
+  'Get in touch with Soulful Horizon LCSW, PLLC — online therapy serving all of New York. Request an appointment through our secure portal, or reach us by phone or email.'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -19,10 +19,6 @@ export const metadata: Metadata = {
     url: 'https://soulfulhorizon.com/contact',
   },
 }
-
-const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${site.contact.address.line1}, ${site.contact.address.city}, ${site.contact.address.state} ${site.contact.address.zip}`,
-)}`
 
 export default function Contact() {
   return (
@@ -68,6 +64,12 @@ export default function Contact() {
               <h2 className="font-display text-2xl font-semibold text-[var(--theme-text-primary)]">Get in touch</h2>
               <dl className="mt-6 space-y-6">
                 <div>
+                  <dt className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-muted)] uppercase">Sessions</dt>
+                  <dd className="mt-1 text-lg text-[var(--theme-text-secondary)]">
+                    Online (telehealth) · Serving all of New York
+                  </dd>
+                </div>
+                <div>
                   <dt className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-muted)] uppercase">Phone</dt>
                   <dd className="mt-1">
                     <a href={site.contact.phoneHref} className="text-lg text-[var(--theme-text-secondary)] transition hover:text-[var(--theme-accent)]">
@@ -84,13 +86,11 @@ export default function Contact() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-muted)] uppercase">Address</dt>
-                  <dd className="mt-1">
-                    <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="text-lg text-[var(--theme-text-secondary)] transition hover:text-[var(--theme-accent)]">
-                      {site.contact.address.line1}
-                      <br />
-                      {site.contact.address.city}, {site.contact.address.state} {site.contact.address.zip}
-                    </a>
+                  <dt className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-muted)] uppercase">Mailing address</dt>
+                  <dd className="mt-1 text-lg text-[var(--theme-text-secondary)]">
+                    {site.contact.address.line1}
+                    <br />
+                    {site.contact.address.city}, {site.contact.address.state} {site.contact.address.zip}
                   </dd>
                 </div>
               </dl>

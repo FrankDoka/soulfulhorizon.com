@@ -41,6 +41,7 @@ export function practiceSchema() {
     },
     medicalSpecialty: 'Psychiatric',
     knowsAbout: ['Anxiety', 'Depression', 'Trauma', 'Faith-based counseling', 'Mental health coaching'],
+    sameAs: [site.instagram, site.psychologyToday],
   }
 }
 
