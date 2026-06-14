@@ -69,10 +69,23 @@ export default function Insurance() {
         <FadeIn>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             <div className="rounded-3xl border border-[var(--theme-card-border)] bg-[var(--theme-card-bg)] p-8">
-              <h3 className="font-display text-xl font-semibold text-[var(--theme-text-primary)]">Out of pocket</h3>
-              <p className="mt-3 text-base text-[var(--theme-text-secondary)]">
-                Self-pay is welcome, and a <strong className="text-[var(--theme-text-primary)]">sliding scale is
-                available</strong> to help make care more affordable.
+              <h3 className="font-display text-xl font-semibold text-[var(--brand-teal)]">Out-of-pocket rates</h3>
+              <dl className="mt-4 space-y-3 text-base">
+                {[
+                  { label: 'Individual session (50 min)', price: '$150' },
+                  { label: 'Extended session (60 min)', price: '$165' },
+                  { label: 'Intake / diagnostic evaluation', price: '$200' },
+                ].map((r) => (
+                  <div key={r.label} className="flex items-baseline justify-between gap-4 border-b border-[var(--theme-border-subtle)] pb-2 last:border-b-0">
+                    <dt className="text-[var(--theme-text-secondary)]">{r.label}</dt>
+                    <dd className="font-display font-semibold text-[var(--theme-text-primary)]">{r.price}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-4 text-sm text-[var(--theme-text-secondary)]">
+                Self-pay is welcome, and a{' '}
+                <strong className="text-[var(--theme-text-primary)]">sliding scale is available</strong> to help make
+                care more affordable — reach out to discuss.
               </p>
             </div>
             <div className="rounded-3xl border border-[var(--theme-card-border)] bg-[var(--theme-card-bg)] p-8">
