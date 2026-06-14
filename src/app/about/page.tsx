@@ -95,17 +95,24 @@ export default function About() {
             </div>
             <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3">
               {[
-                { label: 'Credential', value: 'LCSW' },
-                { label: 'Licensed in', value: 'New York & Tennessee' },
-                { label: 'Education', value: 'Columbia University, MSW' },
-                { label: 'Experience', value: '8+ years' },
-                { label: 'Languages', value: 'English, Spanish & Haitian Creole' },
+                { label: 'Credential', value: ['LCSW'] },
+                { label: 'Licensed in', value: ['New York & Tennessee'] },
+                {
+                  label: 'Education',
+                  value: ['Columbia University, MSW', 'Liberty University, MA Pastoral Counseling'],
+                },
+                { label: 'Experience', value: ['8+ years'] },
+                { label: 'Languages', value: ['English, Spanish & Haitian Creole'] },
               ].map((fact) => (
                 <div key={fact.label}>
                   <dt className="font-display text-xs font-semibold tracking-[0.15em] text-[var(--theme-text-muted)] uppercase">
                     {fact.label}
                   </dt>
-                  <dd className="mt-1 text-base font-semibold text-[var(--brand-teal)]">{fact.value}</dd>
+                  <dd className="mt-1 space-y-1 text-base font-semibold text-[var(--brand-teal)]">
+                    {fact.value.map((line) => (
+                      <div key={line}>{line}</div>
+                    ))}
+                  </dd>
                 </div>
               ))}
             </dl>
