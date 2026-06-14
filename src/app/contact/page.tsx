@@ -8,7 +8,7 @@ import { JsonLd, practiceSchema } from '@/components/StructuredData'
 import { site } from '@/lib/site'
 
 const description =
-  'Get in touch with Soulful Horizon LCSW, PLLC — online therapy serving all of New York. Request an appointment through our secure portal, or reach us by phone or email.'
+  'Get in touch with Soulful Horizon LCSW, PLLC — online therapy for New York & Tennessee and coaching worldwide. Request an appointment through our secure portal, or reach us by phone or email.'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -66,7 +66,9 @@ export default function Contact() {
                 <div>
                   <dt className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-muted)] uppercase">Sessions</dt>
                   <dd className="mt-1 text-lg text-[var(--theme-text-secondary)]">
-                    Online (telehealth) · Serving all of New York
+                    Therapy: online for New York &amp; Tennessee
+                    <br />
+                    Coaching: available worldwide
                   </dd>
                 </div>
                 <div>

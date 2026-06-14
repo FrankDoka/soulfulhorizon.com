@@ -17,10 +17,10 @@ export function practiceSchema() {
     name: site.legalName,
     url: site.url,
     description:
-      'Faith-based online therapy, group sessions, and mental health coaching for adolescents, young adults, and adults across New York State. Specializing in anxiety, depression, and trauma.',
+      'Faith-based online therapy for clients in New York and Tennessee, plus mental health coaching available worldwide, for adolescents, young adults, and adults. Specializing in anxiety, depression, and trauma.',
     telephone: site.contact.phone,
     email: site.contact.email,
-    availableLanguage: ['English', 'Haitian Creole'],
+    availableLanguage: [...site.languages],
     availableService: {
       '@type': 'MedicalProcedure',
       name: 'Telehealth psychotherapy',
@@ -33,7 +33,10 @@ export function practiceSchema() {
       postalCode: site.contact.address.zip,
       addressCountry: 'US',
     },
-    areaServed: { '@type': 'State', name: 'New York' },
+    areaServed: [
+      { '@type': 'State', name: 'New York' },
+      { '@type': 'State', name: 'Tennessee' },
+    ],
     founder: {
       '@type': 'Person',
       name: 'Emmanuelle Lajeunesse',
@@ -41,7 +44,7 @@ export function practiceSchema() {
     },
     medicalSpecialty: 'Psychiatric',
     knowsAbout: ['Anxiety', 'Depression', 'Trauma', 'Faith-based counseling', 'Mental health coaching'],
-    sameAs: [site.instagram, site.psychologyToday],
+    sameAs: [site.instagram],
   }
 }
 

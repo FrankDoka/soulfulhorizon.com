@@ -10,8 +10,8 @@ import { JsonLd, faqSchema } from '@/components/StructuredData'
 const faqs: { q: string; text: string; a: React.ReactNode }[] = [
   {
     q: 'Are sessions online or in person?',
-    text: 'All sessions are held online (telehealth), so you can meet from the comfort and privacy of your own home — anywhere in New York State.',
-    a: 'All sessions are held online (telehealth), so you can meet from the comfort and privacy of your own home — anywhere in New York State.',
+    text: 'All sessions are held online (telehealth), from the comfort and privacy of your own home. Therapy is available to clients located in New York and Tennessee; coaching is available worldwide, since it isn’t restricted by state licensure.',
+    a: 'All sessions are held online (telehealth), from the comfort and privacy of your own home. Therapy is available to clients located in New York and Tennessee; coaching is available worldwide, since it isn’t restricted by state licensure.',
   },
   {
     q: 'Do you offer a free consultation?',

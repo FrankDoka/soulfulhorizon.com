@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Church, HeartHandshake } from 'lucide-react'
 
 import IndividualImg from '@public/img/sh/individual.webp'
@@ -10,9 +11,10 @@ import { CTASection } from '@/components/CTASection'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
+import { SpLink } from '@/components/SimplePractice'
 
 const description =
-  'Individual therapy, group sessions, and faith-based mental health coaching — compassionate services tailored to nurture your mental wellness and spiritual growth.'
+  'Individual therapy for New York and Tennessee, group sessions and community support, and faith-based coaching available worldwide — compassionate services to nurture your mental wellness and spiritual growth.'
 
 export const metadata: Metadata = {
   title: 'Offerings',
@@ -29,23 +31,32 @@ const services = [
     n: '01',
     title: 'Individual Therapy',
     image: IndividualImg,
-    body: 'Personalized support through one-on-one sessions, helping you navigate life’s challenges with empathy and guidance tailored to your unique spiritual beliefs.',
-    note: null,
+    body: 'Personalized one-on-one online sessions for clients in New York and Tennessee, helping you navigate life’s challenges with empathy and guidance tailored to your unique spiritual beliefs.',
+    note: 'Online · New York & Tennessee',
   },
   {
     n: '02',
-    title: 'Group Sessions',
+    title: 'Group Sessions & Community Support',
     image: GroupImg,
-    body: 'A warm, welcoming environment where you can share your experiences, gain valuable insights, and find the support you need — whether you’re seeking advice, looking to share your story, or simply want to be part of a caring community.',
-    note: 'Next group cohort: Fall 2026',
+    body: 'By-request group sessions and community-based support for schools, organizations, churches, and community programs — warm, supportive spaces for emotional processing, coping skills, reflection, and connection.',
+    note: 'By request · details below',
   },
   {
     n: '03',
     title: 'Mental Health Coaching',
     image: CoachingImg,
-    body: 'Faith-based coaching integrates spiritual beliefs with psychological strategies, empowering you to navigate life’s challenges through prayer, reflection, and action — aligning your mental health goals with your faith values.',
-    note: null,
+    body: 'Faith-based coaching blends spiritual beliefs with psychological strategies, empowering you through prayer, reflection, and action. Because coaching isn’t bound by state licensure, it’s available worldwide — wherever you are.',
+    note: 'Available worldwide',
   },
+]
+
+const groupIncludes = [
+  'Grief support',
+  'Stress management',
+  'Emotional regulation',
+  'Coping skills',
+  'Faith-integrated reflection (upon request)',
+  'Wellness workshops',
 ]
 
 const why = [
@@ -80,12 +91,12 @@ export default function Offerings() {
                 </div>
                 <div>
                   <span className="font-display text-5xl font-medium text-[var(--theme-border)]">{s.n}</span>
-                  <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-[var(--theme-text-primary)]">
+                  <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-[var(--brand-teal)]">
                     {s.title}
                   </h2>
                   <p className="mt-4 text-lg text-[var(--theme-text-secondary)]">{s.body}</p>
                   {s.note && (
-                    <p className="mt-5 inline-flex rounded-full bg-[var(--theme-bg-elevated)] px-4 py-2 text-sm font-semibold text-[var(--theme-accent)]">
+                    <p className="mt-5 inline-flex rounded-full bg-[var(--theme-bg-elevated)] px-4 py-2 text-sm font-semibold text-[var(--brand-teal)]">
                       {s.note}
                     </p>
                   )}
@@ -96,10 +107,92 @@ export default function Offerings() {
         </div>
       </Container>
 
+      {/* Group Sessions & Community Support — full detail */}
+      <section className="mt-16 bg-[var(--theme-bg-elevated)] sm:mt-24">
+        <Container className="py-14 sm:py-20">
+          <FadeIn className="mx-auto max-w-3xl">
+            <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
+              By Request
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-4xl">
+              Group Sessions &amp; Community Support
+            </h2>
+            <div className="mt-6 space-y-4 text-lg text-[var(--theme-text-secondary)]">
+              <p>
+                Soulful Horizon offers group sessions and community-based support by request for schools, organizations,
+                churches, and community programs.
+              </p>
+              <p>
+                These sessions are designed to provide a warm, supportive space for emotional processing,
+                psychoeducation, coping skills, reflection, and connection. Group offerings may be helpful after a loss,
+                major transition, stressful event, or during seasons where additional emotional wellness support is
+                needed.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="mx-auto mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
+            <FadeIn>
+              <div className="h-full rounded-3xl bg-[var(--theme-bg-surface)] p-7 ring-1 ring-[var(--theme-card-border)]">
+                <h3 className="font-display text-lg font-semibold text-[var(--brand-teal)]">Sessions may include</h3>
+                <ul className="mt-4 space-y-2 text-base text-[var(--theme-text-secondary)]">
+                  {groupIncludes.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <svg className="mt-1.5 h-2 w-2 flex-none fill-[var(--brand-gold)]" viewBox="0 0 8 8" aria-hidden="true">
+                        <circle cx="4" cy="4" r="4" />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-sm text-[var(--theme-text-muted)]">
+                  Group sessions are customized based on the needs of the organization or community.
+                </p>
+              </div>
+            </FadeIn>
+            <FadeIn>
+              <div className="h-full rounded-3xl bg-[var(--theme-bg-surface)] p-7 ring-1 ring-[var(--theme-card-border)]">
+                <h3 className="font-display text-lg font-semibold text-[var(--brand-teal)]">A recent example</h3>
+                <p className="mt-4 text-base text-[var(--theme-text-secondary)]">
+                  Past group support has included grief-focused healing circles for children, staff, and community
+                  members following a significant loss.
+                </p>
+                <p className="mt-4 rounded-2xl bg-[var(--theme-bg-elevated)] px-4 py-3 text-sm text-[var(--theme-text-secondary)]">
+                  <strong className="font-semibold text-[var(--brand-teal)]">Coming soon:</strong> future group coaching
+                  cohorts and wellness workshops are in development. Reach out to join the interest list and be notified
+                  when new offerings become available.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+
+          <FadeIn className="mx-auto mt-8 max-w-3xl text-center">
+            <p className="text-base text-[var(--theme-text-secondary)]">
+              To inquire about a group session, workshop, or community support offering — or to join the interest list —
+              please get in touch.
+            </p>
+            <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <SpLink
+                contact
+                className="inline-flex cursor-pointer rounded-full bg-[var(--brand-gold)] px-7 py-3 text-base font-semibold text-white transition hover:bg-[#b07f33]"
+              >
+                Inquire About Group Sessions
+              </SpLink>
+              <Link
+                href="/contact"
+                className="inline-flex rounded-full border border-[var(--brand-gold)] px-7 py-3 text-base font-semibold text-[var(--brand-teal)] transition hover:bg-[var(--brand-gold)] hover:text-white"
+              >
+                Contact Page
+              </Link>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
       {/* Why choose Soulful Horizon */}
-      <Container className="mt-12 sm:mt-16">
+      <Container className="mt-16 sm:mt-24">
         <FadeIn>
-          <h2 className="font-display text-3xl font-medium tracking-tight text-[var(--theme-text-primary)] sm:text-4xl">
+          <h2 className="font-display text-3xl font-medium tracking-tight text-[var(--brand-teal)] sm:text-4xl">
             Why choose Soulful Horizon for your healing?
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-[var(--theme-text-secondary)]">
@@ -122,7 +215,7 @@ export default function Offerings() {
         </FadeInStagger>
       </Container>
 
-      <CTASection title="Ready to begin?" >
+      <CTASection title="Ready to begin?">
         Have a question about which offering is right for you? Reach out — we’re happy to help you find the best fit.
       </CTASection>
     </div>

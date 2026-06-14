@@ -4,6 +4,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { Logo } from '@/components/Logo'
 import { SpLink } from '@/components/SimplePractice'
+import { VerificationSeal } from '@/components/VerificationSeal'
 import { navLinks, site } from '@/lib/site'
 
 function Navigation() {
@@ -43,10 +44,10 @@ function ContactBlock() {
             {site.contact.email}
           </a>
         </li>
+        <li className="text-[var(--theme-text-muted)]">Online therapy · {site.therapyArea}</li>
         <li className="text-[var(--theme-text-muted)]">
-          {site.contact.address.line1}
-          <br />
-          {site.contact.address.city}, {site.contact.address.state} {site.contact.address.zip}
+          Mailing: {site.contact.address.line1}, {site.contact.address.city}, {site.contact.address.state}{' '}
+          {site.contact.address.zip}
         </li>
       </ul>
     </div>
@@ -100,17 +101,9 @@ function ConnectBlock() {
             Instagram
           </a>
         </li>
-        <li>
-          <a
-            href={site.psychologyToday}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition hover:text-[var(--theme-text-primary)]"
-          >
-            Psychology Today
-          </a>
-        </li>
       </ul>
+      {/* Verification stamp/badge — renders once the embed code is added in VerificationSeal.tsx */}
+      <VerificationSeal className="mt-4" />
     </div>
   )
 }

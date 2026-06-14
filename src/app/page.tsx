@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     absolute: 'Soulful Horizon LCSW, PLLC | Faith-Based Therapy & Coaching',
   },
   description:
-    'Faith-based individual therapy, group sessions, and mental health coaching with Emmanuelle Lajeunesse, LCSW. A safe place to heal, grow, and rediscover who you were created to be. Serving New York.',
+    'Faith-based therapy with Emmanuelle Lajeunesse, LCSW — online for clients in New York and Tennessee, plus mental health coaching available worldwide. A safe place to heal, grow, and rediscover who you were created to be.',
 }
 
 const offerings = [
@@ -36,16 +36,16 @@ const offerings = [
     body: 'One-on-one sessions with personalized strategies that align with your spiritual beliefs to enhance emotional well-being.',
   },
   {
-    title: 'Group Sessions',
+    title: 'Group Sessions & Community Support',
     image: GroupImg,
     icon: Users,
-    body: 'Connect with others in a supportive environment. Share experiences and gain insights while fostering community and healing together.',
+    body: 'By-request group sessions and community support for schools, organizations, churches, and community programs — a warm space for processing, coping skills, reflection, and connection.',
   },
   {
     title: 'Mental Health Coaching',
     image: CoachingImg,
     icon: Compass,
-    body: 'Build resilience and achieve your goals through supportive, faith-based guidance tailored to your unique needs.',
+    body: 'Build resilience and reach your goals through supportive, faith-based coaching — available worldwide, wherever you are.',
   },
 ]
 
@@ -96,7 +96,7 @@ function Hero() {
             </Link>
           </div>
           <p className="mt-6 text-sm font-medium tracking-wide text-[#9fb9bf]">
-            Online therapy across New York · Free 15-minute consultation
+            Online therapy in New York &amp; Tennessee · Coaching worldwide · Free 15-min consultation
           </p>
         </FadeIn>
       </Container>

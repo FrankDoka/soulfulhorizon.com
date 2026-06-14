@@ -8,8 +8,11 @@ export const site = {
   // External booking/portal (SimplePractice — HIPAA-compliant, handles all PHI).
   bookingUrl: 'https://soulful-horizon-lcsw.clientsecure.me/',
   portalUrl: 'https://soulful-horizon-lcsw.clientsecure.me/sign-in',
-  psychologyToday: 'https://www.psychologytoday.com/us/therapists/emmanuelle-lajeunesse-rosedale-ny/1338702',
   instagram: 'https://www.instagram.com/soulful_horizon_lcsw/',
+  // Therapy is license-bound (NY + TN); coaching is not jurisdiction-restricted.
+  therapyArea: 'New York & Tennessee',
+  coachingArea: 'worldwide',
+  languages: ['English', 'Spanish', 'Haitian Creole'],
   // SimplePractice embeddable widget (opens the booking/contact overlay in-page,
   // exactly like the original site). IDs pulled from the original embed code.
   simplePractice: {
