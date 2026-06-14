@@ -1,7 +1,7 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
 
-import PortraitImg from '@public/img/sh/emmanuelle.jpg'
+import PortraitImg from '@public/img/sh/emmanuelle.webp'
 
 import { CTASection } from '@/components/CTASection'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'

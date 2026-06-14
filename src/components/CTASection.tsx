@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import CtaBg from '@public/img/sh/ocean-sunset.jpg'
+import CtaBg from '@public/img/sh/ocean-sunset.webp'
 import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { SpLink } from '@/components/SimplePractice'

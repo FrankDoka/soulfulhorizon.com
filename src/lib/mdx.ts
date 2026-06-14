@@ -1,4 +1,4 @@
-import AuthorPhoto from '@public/img/sh/emmanuelle.jpg'
+import AuthorPhoto from '@public/img/sh/emmanuelle.webp'
 import { type LucideIcon } from 'lucide-react'
 import glob from 'fast-glob'
 import { type ImageProps, type StaticImageData } from 'next/image'

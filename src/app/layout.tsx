@@ -1,6 +1,4 @@
 import { RootLayout } from '@/components/layout/RootLayout'
-import { SimplePracticeRebind } from '@/components/SimplePracticeRebind'
-import { site } from '@/lib/site'
 import '@/style/tailwind.css'
 import { type Metadata } from 'next'
 import Script from 'next/script'
@@ -68,10 +66,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="flex min-h-full flex-col text-base" suppressHydrationWarning>
         <RootLayout>{children}</RootLayout>
-        {/* SimplePractice booking/contact widget — binds to <SpLink> buttons and
-            opens the booking/contact overlay in-page (same as the original site). */}
-        <Script src={site.simplePractice.script} strategy="afterInteractive" />
-        <SimplePracticeRebind />
+        {/* The SimplePractice booking/contact widget is loaded lazily on first
+            click by <SpLink> (see SimplePractice.tsx) to keep initial load fast. */}
         {/* Clean up the old service worker from earlier builds so returning
             visitors never get served a stale cached version. */}
         <script

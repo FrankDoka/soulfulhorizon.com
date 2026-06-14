@@ -2,7 +2,7 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 
 import IndividualImg from '@public/img/sh/individual.webp'
-import GroupImg from '@public/img/sh/group.jpg'
+import GroupImg from '@public/img/sh/group.webp'
 import CoachingImg from '@public/img/sh/coaching.webp'
 
 import { CTASection } from '@/components/CTASection'
