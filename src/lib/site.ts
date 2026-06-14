@@ -25,7 +25,7 @@ export const site = {
   contact: {
     phone: '929-900-3880',
     phoneHref: 'tel:+19299003880',
-    email: 'elajeunesse@soulfulhorizon.com',
+    email: 'info@soulfulhorizon.com',
     address: {
       line1: '418 Broadway #6377',
       city: 'Albany',
