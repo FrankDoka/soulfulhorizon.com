@@ -9,6 +9,7 @@ export const site = {
   bookingUrl: 'https://soulful-horizon-lcsw.clientsecure.me/',
   portalUrl: 'https://soulful-horizon-lcsw.clientsecure.me/sign-in',
   instagram: 'https://www.instagram.com/soulful_horizon_lcsw/',
+  googleBusiness: 'https://maps.app.goo.gl/1ky2dphLennhEKgLA',
   // Therapy is license-bound (NY + TN); coaching is not jurisdiction-restricted.
   therapyArea: 'New York & Tennessee',
   coachingArea: 'worldwide',
