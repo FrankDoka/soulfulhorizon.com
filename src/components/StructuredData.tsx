@@ -44,6 +44,18 @@ export function practiceSchema() {
   }
 }
 
+export function faqSchema(faqs: { q: string; text: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.text },
+    })),
+  }
+}
+
 export function blogPostSchema(post: {
   title: string
   description: string

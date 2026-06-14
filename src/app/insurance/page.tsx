@@ -58,11 +58,17 @@ export default function Insurance() {
 
       <Container className="mt-10 sm:mt-14">
         <FadeIn>
-          <h2 className="font-display text-2xl font-semibold text-[var(--theme-text-primary)]">Accepted plans</h2>
-          <ul className="mt-6 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="font-display text-2xl font-semibold text-[var(--brand-teal)]">Accepted plans</h2>
+          <p className="mt-2 text-base text-[var(--theme-text-secondary)]">
+            We’re in-network with a wide range of major plans, including:
+          </p>
+          <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {plans.map((plan) => (
-              <li key={plan} className="flex items-start gap-3 text-base text-[var(--theme-text-secondary)]">
-                <svg className="mt-1 h-4 w-4 flex-none text-[var(--theme-accent)]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <li
+                key={plan}
+                className="flex items-center gap-3 rounded-2xl bg-[var(--theme-bg-surface)] px-4 py-3 text-sm font-medium text-[var(--theme-text-primary)] ring-1 ring-[var(--theme-card-border)]"
+              >
+                <svg className="h-5 w-5 flex-none text-[var(--brand-teal)]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 10.7a1 1 0 011.4-1.4l3.3 3.29 6.8-6.8a1 1 0 011.4 0z" clipRule="evenodd" />
                 </svg>
                 <span>{plan}</span>

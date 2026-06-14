@@ -4,6 +4,7 @@ import CtaBg from '@public/img/sh/ocean-sunset.webp'
 import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { SpLink } from '@/components/SimplePractice'
+import { WaveDivider } from '@/components/WaveDivider'
 import { site } from '@/lib/site'
 
 export function CTASection({
@@ -25,7 +26,8 @@ export function CTASection({
         className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25"
       />
       <div className="absolute inset-0 -z-10 bg-[var(--brand-teal-dark)]/80" aria-hidden="true" />
-      <Container className="py-16 text-center sm:py-20">
+      <WaveDivider fill="var(--theme-bg-page)" position="top" />
+      <Container className="py-12 text-center sm:py-16">
         <FadeIn>
           <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold tracking-tight text-[#faf6ee] sm:text-4xl">
             {title}

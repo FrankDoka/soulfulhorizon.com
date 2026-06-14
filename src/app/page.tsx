@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { UserRound, Users, Compass, MessageCircle, HeartHandshake, Sparkles } from 'lucide-react'
 
 import LogoImg from '@public/img/sh/logo.webp'
 import CrossImg from '@public/img/sh/faith-cbi.webp'
@@ -14,6 +15,7 @@ import { FAQ } from '@/components/FAQ'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { SpLink } from '@/components/SimplePractice'
+import { WaveDivider } from '@/components/WaveDivider'
 import { JsonLd, practiceSchema } from '@/components/StructuredData'
 import { loadPosts } from '@/lib/mdx'
 import { formatDate } from '@/lib/formatDate'
@@ -30,17 +32,38 @@ const offerings = [
   {
     title: 'Individual Therapy',
     image: IndividualImg,
+    icon: UserRound,
     body: 'One-on-one sessions with personalized strategies that align with your spiritual beliefs to enhance emotional well-being.',
   },
   {
     title: 'Group Sessions',
     image: GroupImg,
+    icon: Users,
     body: 'Connect with others in a supportive environment. Share experiences and gain insights while fostering community and healing together.',
   },
   {
     title: 'Mental Health Coaching',
     image: CoachingImg,
+    icon: Compass,
     body: 'Build resilience and achieve your goals through supportive, faith-based guidance tailored to your unique needs.',
+  },
+]
+
+const steps = [
+  {
+    icon: MessageCircle,
+    title: 'Reach Out',
+    body: 'Request a free 15-minute consultation through the secure portal — no pressure, no commitment.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Connect',
+    body: 'We’ll talk through what’s bringing you in and make sure we’re the right fit for one another.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Begin',
+    body: 'Start your personalized therapy or coaching journey, from the comfort of home.',
   },
 ]
 
@@ -77,6 +100,7 @@ function Hero() {
           </p>
         </FadeIn>
       </Container>
+      <WaveDivider fill="var(--theme-bg-page)" />
     </section>
   )
 }
@@ -130,7 +154,7 @@ function Offerings() {
     <section className="bg-[var(--theme-bg-elevated)]">
       <Container className="py-14 sm:py-20">
         <FadeIn className="mx-auto max-w-2xl text-center">
-          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold)] uppercase">
+          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
             Our Offerings
           </p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
@@ -155,11 +179,16 @@ function Offerings() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">
-                  <h3 className="font-display text-xl font-semibold text-[var(--brand-teal)]">{o.title}</h3>
-                  <p className="mt-3 flex-1 text-base text-[var(--theme-text-secondary)]">{o.body}</p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[var(--theme-bg-elevated)] text-[var(--brand-teal)]">
+                      <o.icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <h3 className="font-display text-xl font-semibold text-[var(--brand-teal)]">{o.title}</h3>
+                  </div>
+                  <p className="mt-4 flex-1 text-base text-[var(--theme-text-secondary)]">{o.body}</p>
                   <Link
                     href="/offerings"
-                    className="mt-5 text-sm font-semibold text-[var(--brand-gold)] transition hover:text-[#b07f33]"
+                    className="mt-5 text-sm font-semibold text-[var(--brand-gold-ink)] transition hover:text-[#b07f33]"
                   >
                     Learn more →
                   </Link>
@@ -175,7 +204,7 @@ function Offerings() {
 
 function AboutPreview() {
   return (
-    <section className="bg-[var(--theme-bg-elevated)]">
+    <section className="bg-[var(--theme-bg-page)]">
       <Container className="py-14 sm:py-20">
         <div className="grid items-center gap-12 lg:grid-cols-5 lg:gap-16">
           <FadeIn className="lg:col-span-2">
@@ -190,7 +219,7 @@ function AboutPreview() {
             </div>
           </FadeIn>
           <FadeIn className="lg:col-span-3">
-            <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold)] uppercase">
+            <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
               Meet Your Therapist
             </p>
             <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
@@ -224,10 +253,10 @@ async function Insights() {
   const posts = (await loadPosts()).slice(0, 2)
   if (posts.length === 0) return null
   return (
-    <section className="bg-[var(--theme-bg-page)]">
+    <section className="bg-[var(--theme-bg-elevated)]">
       <Container className="py-14 sm:py-20">
         <FadeIn className="mx-auto max-w-2xl text-center">
-          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold)] uppercase">
+          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
             Soulful Insights
           </p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
@@ -256,12 +285,12 @@ async function Insights() {
                   </div>
                 )}
                 <div className="flex flex-1 flex-col p-7">
-                  <time dateTime={post.date} className="text-sm text-[var(--brand-gold)]">
+                  <time dateTime={post.date} className="text-sm text-[var(--brand-gold-ink)]">
                     {formatDate(post.date)}
                   </time>
                   <h3 className="mt-2 font-display text-xl font-semibold text-[var(--brand-teal)]">{post.title}</h3>
                   <p className="mt-3 flex-1 text-base text-[var(--theme-text-secondary)]">{post.description}</p>
-                  <span className="mt-5 text-sm font-semibold text-[var(--brand-gold)] transition group-hover:text-[#b07f33]">
+                  <span className="mt-5 text-sm font-semibold text-[var(--brand-gold-ink)] transition group-hover:text-[#b07f33]">
                     Read More »
                   </span>
                 </div>
@@ -287,10 +316,10 @@ const focusAreas = [
 
 function WhoIHelp() {
   return (
-    <section className="bg-[var(--theme-bg-page)]">
+    <section className="bg-[var(--theme-bg-elevated)]">
       <Container className="py-14 sm:py-20">
         <FadeIn className="mx-auto max-w-3xl text-center">
-          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold)] uppercase">
+          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
             Who I Help
           </p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
@@ -316,6 +345,42 @@ function WhoIHelp() {
   )
 }
 
+function HowItWorks() {
+  return (
+    <section className="bg-[var(--theme-bg-page)]">
+      <Container className="py-14 sm:py-20">
+        <FadeIn className="mx-auto max-w-2xl text-center">
+          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
+            Getting Started
+          </p>
+          <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
+            Starting is simple
+          </h2>
+          <p className="mt-5 text-lg text-[var(--theme-text-secondary)]">
+            Taking the first step can feel big. Here’s exactly what to expect.
+          </p>
+        </FadeIn>
+        <FadeInStagger className="mt-12 grid gap-8 md:grid-cols-3">
+          {steps.map((s, i) => (
+            <FadeIn key={s.title}>
+              <div className="h-full rounded-3xl bg-[var(--theme-bg-surface)] p-8 text-center shadow-sm ring-1 ring-[var(--theme-card-border)]">
+                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[var(--brand-teal)] text-white">
+                  <s.icon className="h-6 w-6" aria-hidden="true" />
+                </span>
+                <div className="mt-4 font-display text-xs font-semibold tracking-[0.15em] text-[var(--brand-gold-ink)] uppercase">
+                  Step {i + 1}
+                </div>
+                <h3 className="mt-1 font-display text-xl font-semibold text-[var(--brand-teal)]">{s.title}</h3>
+                <p className="mt-3 text-base text-[var(--theme-text-secondary)]">{s.body}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </FadeInStagger>
+      </Container>
+    </section>
+  )
+}
+
 export default async function Home() {
   return (
     <div data-pagefind-body>
@@ -323,6 +388,7 @@ export default async function Home() {
       <Hero />
       <Story />
       <Offerings />
+      <HowItWorks />
       <WhoIHelp />
       <AboutPreview />
       <Insights />

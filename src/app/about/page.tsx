@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import { Heart, ShieldCheck, Leaf } from 'lucide-react'
 
 import PortraitImg from '@public/img/sh/emmanuelle.webp'
 
@@ -26,14 +27,17 @@ export const metadata: Metadata = {
 const values = [
   {
     title: 'Compassion',
+    icon: Heart,
     body: 'We prioritize understanding and empathy in all our interactions, ensuring every client feels valued and supported throughout their healing journey.',
   },
   {
     title: 'Integrity',
+    icon: ShieldCheck,
     body: 'We adhere to ethical practices and maintain transparency in our approach, fostering trust and respect among our clients.',
   },
   {
     title: 'Wholeness',
+    icon: Leaf,
     body: 'We treat the individual as a whole — integrating mental, emotional, and spiritual well-being to promote lasting transformation and growth.',
   },
 ]
@@ -147,7 +151,10 @@ export default function About() {
           {values.map((v) => (
             <FadeIn key={v.title}>
               <div className="h-full rounded-3xl border border-[var(--theme-card-border)] bg-[var(--theme-card-bg)] p-8">
-                <h3 className="font-display text-xl font-semibold text-[var(--theme-accent)]">{v.title}</h3>
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--theme-bg-elevated)] text-[var(--brand-teal)]">
+                  <v.icon className="h-6 w-6" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-display text-xl font-semibold text-[var(--brand-teal)]">{v.title}</h3>
                 <p className="mt-3 text-base text-[var(--theme-text-secondary)]">{v.body}</p>
               </div>
             </FadeIn>

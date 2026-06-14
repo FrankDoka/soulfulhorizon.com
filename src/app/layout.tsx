@@ -1,7 +1,16 @@
 import { RootLayout } from '@/components/layout/RootLayout'
 import '@/style/tailwind.css'
 import { type Metadata } from 'next'
+import { Fraunces } from 'next/font/google'
 import Script from 'next/script'
+
+// Warm humanist serif for headings (self-hosted at build time), paired with the
+// existing Mona Sans for body text — gives the site a softer, editorial feel.
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fraunces',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://soulfulhorizon.com'),
@@ -47,7 +56,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+    <html lang="en" className={`h-full antialiased ${fraunces.variable}`} suppressHydrationWarning>
       <head>
         <link
           rel="preload"

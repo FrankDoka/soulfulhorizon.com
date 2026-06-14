@@ -11,6 +11,9 @@
   --brand-teal-hero: #1c4153;
   --brand-gold: #c8954a;
   --brand-gold-light: #e0b878;
+  /* Darker gold for small text/links on light backgrounds — meets WCAG AA
+     contrast (the lighter --brand-gold is reserved for button fills). */
+  --brand-gold-ink: #8a6121;
   --brand-coral: #e07a5f;
   --brand-cream: #faf6ee;
 }
@@ -87,10 +90,5 @@ body {
   --font-sans: Mona Sans, ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  --font-display: Mona Sans, ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-
-  --font-display--font-variation-settings: 'wdth' 125;
-
-  --font-display-length: 2;
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
 }

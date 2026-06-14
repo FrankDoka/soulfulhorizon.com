@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import { Church, HeartHandshake } from 'lucide-react'
 
 import IndividualImg from '@public/img/sh/individual.webp'
 import GroupImg from '@public/img/sh/group.webp'
@@ -50,10 +51,12 @@ const services = [
 const why = [
   {
     title: 'Faith-Infused Interventions',
+    icon: Church,
     body: 'We uniquely blend spiritual guidance with professional counseling techniques, ensuring your faith and values are integral to your journey.',
   },
   {
     title: 'Community-Centered Approach',
+    icon: HeartHandshake,
     body: 'We weave connection and an understanding of cultural backgrounds into your care. We are not only professionals, but also compassionate listeners.',
   },
 ]
@@ -108,7 +111,10 @@ export default function Offerings() {
           {why.map((w) => (
             <FadeIn key={w.title}>
               <div className="h-full rounded-3xl border border-[var(--theme-card-border)] bg-[var(--theme-card-bg)] p-8">
-                <h3 className="font-display text-xl font-semibold text-[var(--theme-accent)]">{w.title}</h3>
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--theme-bg-elevated)] text-[var(--brand-teal)]">
+                  <w.icon className="h-6 w-6" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-display text-xl font-semibold text-[var(--brand-teal)]">{w.title}</h3>
                 <p className="mt-3 text-base text-[var(--theme-text-secondary)]">{w.body}</p>
               </div>
             </FadeIn>

@@ -34,7 +34,7 @@ export function ArticleList({ articles }: { articles: Array<MDXEntry<Post>> }) {
                   </div>
                 )}
                 <div className="flex flex-1 flex-col p-7">
-                  <div className="flex items-center gap-2 text-sm text-[var(--brand-gold)]">
+                  <div className="flex items-center gap-2 text-sm text-[var(--brand-gold-ink)]">
                     <time dateTime={article.date}>{formatDate(article.date)}</time>
                     {mins > 0 && (
                       <>
@@ -47,7 +47,7 @@ export function ArticleList({ articles }: { articles: Array<MDXEntry<Post>> }) {
                     {article.title}
                   </h2>
                   <p className="mt-3 flex-1 text-base text-[var(--theme-text-secondary)]">{article.description}</p>
-                  <span className="mt-5 text-sm font-semibold text-[var(--brand-gold)] transition group-hover:text-[#b07f33]">
+                  <span className="mt-5 text-sm font-semibold text-[var(--brand-gold-ink)] transition group-hover:text-[#b07f33]">
                     Read More »
                   </span>
                 </div>
