@@ -1,7 +1,7 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { UserRound, Users, Compass, MessageCircle, HeartHandshake, Sparkles } from 'lucide-react'
+import { UserRound, Users, Compass, MessageCircle, HeartHandshake, Sparkles, ShieldCheck, Award, Languages, Video } from 'lucide-react'
 
 import LogoImg from '@public/img/sh/logo.webp'
 import CrossImg from '@public/img/sh/faith-cbi.webp'
@@ -67,9 +67,25 @@ const steps = [
   },
 ]
 
+const trust = [
+  { icon: ShieldCheck, label: 'Licensed in NY & Tennessee' },
+  { icon: Award, label: '8+ years of experience' },
+  { icon: Languages, label: 'English · Spanish · Haitian Creole' },
+  { icon: Video, label: 'Online · Free 15-min consult' },
+]
+
 function Hero() {
   return (
-    <section className="bg-[var(--brand-teal-hero)]">
+    <section className="relative isolate overflow-hidden bg-[var(--brand-teal-hero)]">
+      {/* soft glow behind the logo for depth */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-[420px] max-w-3xl"
+        style={{
+          background:
+            'radial-gradient(ellipse 60% 60% at 50% 30%, rgba(224,184,120,0.18), rgba(58,125,140,0.10) 45%, transparent 70%)',
+        }}
+      />
       <Container className="py-14 text-center sm:py-20">
         <FadeIn>
           <Image
@@ -95,9 +111,17 @@ function Hero() {
               Explore Offerings
             </Link>
           </div>
-          <p className="mt-6 text-sm font-medium tracking-wide text-[#9fb9bf]">
-            Online therapy in New York &amp; Tennessee · Coaching worldwide · Free 15-min consultation
+          <p className="mt-5 text-sm font-medium tracking-wide text-[#9fb9bf]">
+            Coaching available worldwide
           </p>
+          <ul className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-[#cdd9db]">
+            {trust.map((t) => (
+              <li key={t.label} className="flex items-center gap-2">
+                <t.icon className="h-4 w-4 flex-none text-[var(--brand-gold-light)]" aria-hidden="true" />
+                <span>{t.label}</span>
+              </li>
+            ))}
+          </ul>
         </FadeIn>
       </Container>
       <WaveDivider fill="var(--theme-bg-page)" />

@@ -121,6 +121,30 @@ export default function About() {
         </div>
       </Container>
 
+      {/* My Approach */}
+      <Container className="mt-12 sm:mt-16">
+        <FadeIn className="mx-auto max-w-3xl rounded-3xl border border-[var(--theme-card-border)] bg-[var(--theme-card-bg)] p-8 sm:p-10">
+          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
+            My Approach
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-4xl">
+            Christ-centered, evidence-based care
+          </h2>
+          <div className="mt-5 space-y-4 text-lg text-[var(--theme-text-secondary)]">
+            <p>
+              My work blends evidence-based therapy — primarily cognitive and behavioral approaches — with
+              Christ-centered care. Together we’ll gently examine the thoughts and patterns keeping you stuck, build
+              practical coping skills, and move toward real, lasting change.
+            </p>
+            <p>
+              Faith is integrated as much, or as little, as you’d like. When you welcome it, we can weave in prayer,
+              Scripture, and reflection; either way, care is always client-centered and paced around you, with your
+              beliefs and values guiding the work.
+            </p>
+          </div>
+        </FadeIn>
+      </Container>
+
       {/* Mission & Vision */}
       <Container className="mt-12 sm:mt-16">
         <div className="grid gap-8 md:grid-cols-2">
