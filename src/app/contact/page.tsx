@@ -87,14 +87,6 @@ export default function Contact() {
                     </a>
                   </dd>
                 </div>
-                <div>
-                  <dt className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-muted)] uppercase">Mailing address</dt>
-                  <dd className="mt-1 text-lg text-[var(--theme-text-secondary)]">
-                    {site.contact.address.line1}
-                    <br />
-                    {site.contact.address.city}, {site.contact.address.state} {site.contact.address.zip}
-                  </dd>
-                </div>
               </dl>
               <p className="mt-8 rounded-2xl bg-[var(--theme-bg-elevated)] px-5 py-4 text-sm text-[var(--theme-text-secondary)]">
                 Please do not include sensitive personal or health information in email. For anything confidential, use the

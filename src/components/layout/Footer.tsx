@@ -45,10 +45,6 @@ function ContactBlock() {
           </a>
         </li>
         <li className="text-[var(--theme-text-muted)]">Online therapy · {site.therapyArea}</li>
-        <li className="text-[var(--theme-text-muted)]">
-          Mailing: {site.contact.address.line1}, {site.contact.address.city}, {site.contact.address.state}{' '}
-          {site.contact.address.zip}
-        </li>
       </ul>
     </div>
   )
