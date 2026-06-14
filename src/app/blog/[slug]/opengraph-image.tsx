@@ -1,0 +1,127 @@
+import { ImageResponse } from 'next/og'
+import { loadPosts } from '@/lib/mdx'
+
+export const alt = 'Soulful Insights — Soulful Horizon blog'
+export const size = { width: 1200, height: 630 }
+export const contentType = 'image/png'
+
+// Prerender at build time (required for `output: export`).
+export const dynamic = 'force-static'
+
+// Prerender one OG image per blog post (required for `output: export`).
+export async function generateStaticParams() {
+  const posts = await loadPosts()
+  return posts.map((p) => ({ slug: p.href.replace('/blog/', '') }))
+}
+
+export default async function OGImage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const posts = await loadPosts()
+  const post = posts.find((p) => p.href === `/blog/${slug}`)
+
+  const title = post?.title ?? slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+  const description = post?.description ?? ''
+  const tags = post?.tags?.slice(0, 4) ?? []
+  const date = post?.date
+    ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    : ''
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#143b45',
+          color: '#faf6ee',
+          fontFamily: 'system-ui, sans-serif',
+          padding: '60px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div
+            style={{
+              fontSize: 14,
+              color: '#e0b878',
+              textTransform: 'uppercase',
+              letterSpacing: '3px',
+              fontWeight: 700,
+            }}
+          >
+            Soulful Insights
+          </div>
+          {date && (
+            <>
+              <div style={{ color: '#404040', fontSize: 14 }}>·</div>
+              <div style={{ fontSize: 14, color: '#737373' }}>{date}</div>
+            </>
+          )}
+        </div>
+
+        <div
+          style={{
+            fontSize: 52,
+            fontWeight: 700,
+            lineHeight: 1.15,
+            maxWidth: '1000px',
+            marginTop: '32px',
+            letterSpacing: '-1px',
+          }}
+        >
+          {title}
+        </div>
+
+        {description && (
+          <div
+            style={{
+              fontSize: 22,
+              color: '#a3a3a3',
+              marginTop: '24px',
+              maxWidth: '900px',
+              lineHeight: 1.4,
+            }}
+          >
+            {description}
+          </div>
+        )}
+
+        {tags.length > 0 && (
+          <div style={{ display: 'flex', gap: '10px', marginTop: '32px' }}>
+            {tags.map((tag) => (
+              <div
+                key={tag}
+                style={{
+                  fontSize: 14,
+                  color: '#d4d4d4',
+                  border: '1px solid #404040',
+                  borderRadius: '9999px',
+                  padding: '6px 16px',
+                }}
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            position: 'absolute',
+            bottom: '48px',
+            left: '60px',
+            right: '60px',
+          }}
+        >
+          <div style={{ fontSize: 20, fontWeight: 600, color: '#e5e5e5' }}>Soulful Horizon</div>
+          <div style={{ fontSize: 16, color: '#8aa0a4' }}>soulfulhorizon.com</div>
+        </div>
+      </div>
+    ),
+    { ...size }
+  )
+}

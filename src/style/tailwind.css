@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+@import './global.css' layer(components);
+@import './typography.css' layer(components);
+
+/* Brand palette (from the Soulful Horizon logo: deep teal, gold, coral, cream) */
+:root {
+  --brand-teal: #1e5663;
+  --brand-teal-dark: #143b45;
+  --brand-teal-light: #3a7d8c;
+  /* Exact background of the logo PNG, so the hero blends seamlessly behind it */
+  --brand-teal-hero: #1c4153;
+  --brand-gold: #c8954a;
+  --brand-gold-light: #e0b878;
+  --brand-coral: #e07a5f;
+  --brand-cream: #faf6ee;
+}
+
+/* Theme variables — warm light by default, deep-teal dark override via data attribute */
+:root {
+  --theme-bg-page: #faf6ee;
+  --theme-bg-surface: #ffffff;
+  --theme-bg-elevated: #f3ebdd;
+  --theme-bg-hover: rgba(30, 86, 99, 0.08);
+  --theme-text-primary: #173138;
+  --theme-text-secondary: #4d6168;
+  --theme-text-muted: #7c8c90;
+  --theme-border: #e4dccb;
+  --theme-border-subtle: #efe7d8;
+  --theme-code-bg: #143b45;
+  --theme-card-bg: #ffffff;
+  --theme-card-border: #ece3d2;
+  --theme-card-hover: #f7f1e6;
+  --theme-accent: var(--brand-teal);
+  --theme-accent-hover: var(--brand-teal-dark);
+}
+
+body {
+  background-color: var(--theme-bg-page);
+  color: var(--theme-text-primary);
+  transition: background-color 200ms, color 200ms;
+}
+
+[data-theme-surface],
+[data-theme-page],
+[data-theme-elevated] {
+  transition: background-color 200ms;
+}
+
+.theme-card {
+  background-color: var(--theme-card-bg);
+  border-color: var(--theme-card-border);
+  transition: background-color 200ms, border-color 200ms;
+}
+
+.theme-card:hover {
+  background-color: var(--theme-card-hover);
+  border-color: var(--theme-border);
+}
+
+@theme {
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2.25rem;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 2.5rem;
+  --text-5xl--line-height: 3rem;
+  --text-6xl: 3rem;
+  --text-6xl--line-height: 3.5rem;
+  --text-7xl: 4rem;
+  --text-7xl--line-height: 4.5rem;
+
+  --radius-4xl: 2.5rem;
+
+  --font-sans: Mona Sans, ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-display: Mona Sans, ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-display--font-variation-settings: 'wdth' 125;
+
+  --font-display-length: 2;
+}
