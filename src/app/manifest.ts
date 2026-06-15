@@ -10,7 +10,10 @@ export default function manifest(): MetadataRoute.Manifest {
     description:
       'Faith-based individual therapy, group sessions, and mental health coaching for anxiety, depression, and trauma.',
     start_url: '/',
-    display: 'standalone',
+    // 'browser' (not 'standalone') so the site isn't treated as an installable
+    // PWA — this is an info site, not an app, so we don't want the mobile
+    // "Add to Home Screen / install" prompt.
+    display: 'browser',
     background_color: '#faf6ee',
     theme_color: '#1e5663',
     icons: [
