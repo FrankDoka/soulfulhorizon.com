@@ -1,18 +1,14 @@
 /**
- * Verification seal / credential stamp (e.g., a "Verified" badge from a
- * directory or licensing body).
+ * "Verified by Psychology Today" seal — the exact embed code from the provider.
  *
- * TO ADD THE STAMP: paste the exact embed HTML the provider gives you into the
- * SEAL_HTML string below (keep the backticks). While it's an empty string this
- * renders nothing, so the layout stays clean until the code is added.
- *
- * Note: if the provider's snippet includes a <script> or loads an image from
- * their domain, that domain may need to be added to the Content-Security-Policy
- * in public/_headers (script-src / img-src) for it to display on the live site.
+ * It's emitted straight into the static HTML via dangerouslySetInnerHTML (not a
+ * dynamically-injected <script>) because the seal script reads its config from
+ * document.currentScript, which is only set for parser-inserted scripts. The
+ * seal's domains are allowlisted in the CSP (public/_headers).
  */
-const SEAL_HTML = ``
+const SEAL_HTML = `<a href="https://www.psychologytoday.com/profile/1338702" class="sx-verified-seal" aria-label="Verified by Psychology Today"></a>
+<script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="10" data-id="1338702" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy8xMC9wcm9maWxlLzEzMzg3MDI/Y2FsbGJhY2s9c3hjYWxsYmFjaw=="></script>`
 
 export function VerificationSeal({ className }: { className?: string }) {
-  if (!SEAL_HTML.trim()) return null
   return <div className={className} dangerouslySetInnerHTML={{ __html: SEAL_HTML }} />
 }
