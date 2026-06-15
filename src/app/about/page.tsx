@@ -9,6 +9,7 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { SpLink } from '@/components/SimplePractice'
+import { VerificationSeal } from '@/components/VerificationSeal'
 import { site } from '@/lib/site'
 
 const description =
@@ -75,6 +76,9 @@ export default function About() {
           <FadeIn className="lg:col-span-2">
             <div className="relative mx-auto max-w-sm overflow-hidden rounded-3xl shadow-xl">
               <Image src={PortraitImg} alt="Emmanuelle Lajeunesse, LCSW" className="h-full w-full object-cover" placeholder="blur" sizes="(min-width: 1024px) 40vw, 100vw" />
+            </div>
+            <div className="mt-4 flex justify-center">
+              <VerificationSeal />
             </div>
           </FadeIn>
           <FadeIn className="lg:col-span-3">

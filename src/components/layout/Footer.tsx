@@ -4,7 +4,6 @@ import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { Logo } from '@/components/Logo'
 import { SpLink } from '@/components/SimplePractice'
-import { VerificationSeal } from '@/components/VerificationSeal'
 import { navLinks, site } from '@/lib/site'
 
 function Navigation() {
@@ -98,8 +97,6 @@ function ConnectBlock() {
           </a>
         </li>
       </ul>
-      {/* Verification stamp/badge — renders once the embed code is added in VerificationSeal.tsx */}
-      <VerificationSeal className="mt-4" />
     </div>
   )
 }
