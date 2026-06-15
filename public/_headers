@@ -6,6 +6,14 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://widget-cdn.simplepractice.com https://member.psychologytoday.com https://www.psychologytoday.com https://d3mmydk2yvkj9n.cloudfront.net; style-src 'self' 'unsafe-inline' https://widget-cdn.simplepractice.com; img-src 'self' data: https:; font-src 'self' data: https://widget-cdn.simplepractice.com; connect-src 'self' https://cloudflareinsights.com https://widget-cdn.simplepractice.com https://*.simplepractice.com https://*.clientsecure.me https://*.psychologytoday.com; frame-ancestors 'none'; frame-src 'self' https://*.clientsecure.me https://*.simplepractice.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
 
+# The Psychology Today seal is embedded as a same-origin iframe (so the seal's
+# third-party script is isolated and runs reliably across client-side nav). The
+# global frame-ancestors 'none' + X-Frame-Options: DENY would block it, so this
+# more-specific rule overrides both to allow same-origin framing of this file.
+/pt-seal.html
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline' https://member.psychologytoday.com https://d3mmydk2yvkj9n.cloudfront.net; img-src https: data:; style-src 'unsafe-inline'; connect-src https://*.psychologytoday.com https://d3mmydk2yvkj9n.cloudfront.net; frame-ancestors 'self'
+
 # next/og images are emitted as extensionless files by the static export, so
 # Cloudflare serves them as application/octet-stream. Force image/png so social
 # scrapers (LinkedIn, X, Slack, iMessage) render the link-preview cards.
