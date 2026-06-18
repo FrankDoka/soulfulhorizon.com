@@ -27,7 +27,7 @@
     "escape-string-regexp": "^5.0.0",
     "fast-glob": "^3.3.3",
     "lucide-react": "^1.18.0",
-    "next": "^15.3.3",
+    "next": "^16.2.9",
     "react": "^19.2.4",
     "react-dom": "^19.2.7",
     "rehype-slug": "^6.0.0",
