@@ -26,7 +26,7 @@
     "clsx": "^2.1.1",
     "escape-string-regexp": "^5.0.0",
     "fast-glob": "^3.3.3",
-    "lucide-react": "^1.18.0",
+    "lucide-react": "^1.25.0",
     "next": "^15.3.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.7",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@next/bundle-analyzer": "^16.2.9",
+    "@next/bundle-analyzer": "^16.2.10",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -44,14 +44,14 @@
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@vitejs/plugin-react": "^6.0.2",
-    "@vitest/coverage-v8": "^4.1.0",
+    "@vitejs/plugin-react": "^6.0.3",
+    "@vitest/coverage-v8": "^4.1.10",
     "eslint": "^9",
     "eslint-config-next": "^15.3.3",
     "eslint-plugin-react-hooks": "^7.1.1",
     "jsdom": "^29.0.0",
-    "prettier": "^3.8.3",
-    "prettier-plugin-tailwindcss": "^0.8.0",
+    "prettier": "^3.9.5",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "recma-import-images": "0.0.3",
     "rehype-unwrap-images": "^1.0.0",
     "remark-gfm": "^4.0.1",
@@ -60,6 +60,6 @@
     "typescript": "^6",
     "unified-conditional": "0.0.2",
     "vitest": "^4.1.6",
-    "wrangler": "^4.90.0"
+    "wrangler": "^4.112.0"
   }
 }
