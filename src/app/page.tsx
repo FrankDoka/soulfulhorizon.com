@@ -34,7 +34,7 @@ const offerings = [
     href: '/offerings#individual-therapy',
     image: IndividualImg,
     icon: UserRound,
-    body: 'One-on-one sessions with personalized strategies that align with your spiritual beliefs to enhance emotional well-being.',
+    body: 'One-on-one sessions with personalized, evidence-based strategies to support your emotional well-being. Christian faith integration is available for clients who want it.',
   },
   {
     title: 'Group Sessions & Community Support',
@@ -398,7 +398,9 @@ export default async function Home() {
       <HowItWorks />
       <MidPageCTA />
       <Insights />
-      <FAQ limit={5} />
+      {/* 6, not 5: private pay now sits at position 5, and the faith question
+          after it needs to stay on the homepage. */}
+      <FAQ limit={6} />
       <CTASection />
     </div>
   )

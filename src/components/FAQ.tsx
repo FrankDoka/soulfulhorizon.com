@@ -37,6 +37,21 @@ const faqs: { q: string; text: string; a: React.ReactNode }[] = [
     ),
   },
   {
+    q: 'Do you offer private pay?',
+    text: 'Private-pay therapy is available for clients who prefer flexibility, privacy, or do not want to rely on insurance for care. Superbills may be provided for clients with out-of-network benefits. Insurance options are also available depending on plan and location.',
+    a: (
+      <>
+        Private-pay therapy is available for clients who prefer flexibility, privacy, or do not want
+        to rely on insurance for care. Superbills may be provided for clients with out-of-network
+        benefits. Insurance options are also available depending on plan and location. See the{' '}
+        <Link href="/insurance" className="font-semibold text-[var(--brand-gold-ink)] hover:underline">
+          insurance and fees page
+        </Link>{' '}
+        for rates and accepted plans.
+      </>
+    ),
+  },
+  {
     q: 'Is faith part of every session?',
     text: 'Faith is woven in as much — or as little — as you’d like. Care is always client-centered and meets you exactly where you are.',
     a: 'Faith is woven in as much — or as little — as you’d like. Care is always client-centered and meets you exactly where you are.',

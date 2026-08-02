@@ -33,7 +33,7 @@ const services = [
     slug: 'individual-therapy',
     title: 'Individual Therapy',
     image: IndividualImg,
-    body: 'Personalized one-on-one online sessions for clients in New York and Tennessee, helping you navigate life’s challenges with empathy and guidance tailored to your unique spiritual beliefs.',
+    body: 'Personalized one-on-one online sessions for clients in New York and Tennessee, helping you navigate life’s challenges with empathy and evidence-based guidance tailored to you. Christian faith integration is available for clients who want it.',
     note: 'Online · New York & Tennessee',
   },
   {
@@ -65,9 +65,9 @@ const groupIncludes = [
 
 const why = [
   {
-    title: 'Faith-Infused Interventions',
+    title: 'Care That Follows Your Lead',
     icon: Church,
-    body: 'We uniquely blend spiritual guidance with professional counseling techniques, ensuring your faith and values are integral to your journey.',
+    body: 'Christian faith integration is available for clients who want it — woven in as much, or as little, as you’d like. Care is always client-led, and never assumes faith is part of your treatment unless you ask for it.',
   },
   {
     title: 'Community-Centered Approach',

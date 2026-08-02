@@ -94,9 +94,9 @@ export default function About() {
                 clients build the confidence to overcome barriers.
               </p>
               <p>
-                My person-centered approach is grounded in evidence-based practices and thoughtfully integrates faith
-                with mental health for a holistic experience. I believe everyone has the capacity to become their best
-                self, regardless of life circumstances. I’m here to guide you on your path to wellness.
+                My person-centered approach is grounded in evidence-based practices, and Christian faith integration is
+                available for clients who want it. I believe everyone has the capacity to become their best self,
+                regardless of life circumstances. I’m here to guide you on your path to wellness.
               </p>
             </div>
             <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3">

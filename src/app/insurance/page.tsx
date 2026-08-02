@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import Link from 'next/link'
 
 import { CTASection } from '@/components/CTASection'
 import { FadeIn } from '@/components/FadeIn'
@@ -7,7 +8,7 @@ import { PageIntro } from '@/components/PageIntro'
 import { site } from '@/lib/site'
 
 const description =
-  'Soulful Horizon accepts a wide range of insurance plans, with out-of-pocket and sliding-scale options available.'
+  'Soulful Horizon accepts select insurance plans and offers private-pay therapy, with sliding-scale rates and superbills available.'
 
 export const metadata: Metadata = {
   title: 'Insurance',
@@ -42,7 +43,12 @@ export default function Insurance() {
   return (
     <div data-pagefind-body>
       <PageIntro eyebrow="Insurance" title="Insurance & fees">
-        <p>{description}</p>
+        <p>
+          Soulful Horizon accepts select insurance plans and also offers private-pay therapy. Private
+          pay may be a good fit for clients who prefer more flexibility, added privacy, or who do not
+          want treatment decisions shaped by insurance requirements. Superbills may be available for
+          clients who want to seek possible out-of-network reimbursement from their insurance plan.
+        </p>
       </PageIntro>
 
       <Container className="mt-10 sm:mt-14">
@@ -69,7 +75,7 @@ export default function Insurance() {
         <FadeIn>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             <div className="rounded-3xl border border-[var(--theme-card-border)] bg-[var(--theme-card-bg)] p-8">
-              <h3 className="font-display text-xl font-semibold text-[var(--brand-teal)]">Out-of-pocket rates</h3>
+              <h3 className="font-display text-xl font-semibold text-[var(--brand-teal)]">Private-pay rates</h3>
               <dl className="mt-4 space-y-3 text-base">
                 {[
                   { label: 'Individual session (50 min)', price: '$150' },
@@ -86,6 +92,15 @@ export default function Insurance() {
                 Self-pay is welcome, and a{' '}
                 <strong className="text-[var(--theme-text-primary)]">sliding scale is available</strong> to help make
                 care more affordable — reach out to discuss.
+              </p>
+              <p className="mt-3 text-sm text-[var(--theme-text-secondary)]">
+                <strong className="text-[var(--theme-text-primary)]">Superbills may be available</strong> for clients
+                who want to seek possible out-of-network reimbursement from their insurance plan. You may also want to
+                review your right to a{' '}
+                <Link href="/no-surprises-act" className="font-semibold text-[var(--theme-accent)] hover:underline">
+                  Good Faith Estimate
+                </Link>
+                .
               </p>
             </div>
             <div className="rounded-3xl border border-[var(--theme-card-border)] bg-[var(--theme-card-bg)] p-8">
