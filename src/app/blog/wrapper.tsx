@@ -68,11 +68,17 @@ export default async function BlogArticleWrapper({
         </FadeIn>
 
         <FadeIn>
+          {/* The article column is capped so the line length stays readable
+              (~75 characters); that also frees the right gutter the table of
+              contents sits in. Positioning it outside the container instead
+              pushed the document wider than the viewport below ~1758px. */}
           <div className="relative mt-10 sm:mt-14">
-            <div className="absolute -right-64 top-0 hidden w-56 xl:block">
+            {/* w-48, not w-56: the gutter beside the capped column is 224px,
+                so a 224px sidebar would butt straight against the text. */}
+            <div className="absolute top-0 right-0 hidden w-48 xl:block">
               <TableOfContents />
             </div>
-            <MDXComponents.wrapper>{children}</MDXComponents.wrapper>
+            <MDXComponents.wrapper className="mx-auto max-w-3xl">{children}</MDXComponents.wrapper>
           </div>
         </FadeIn>
       </Container>

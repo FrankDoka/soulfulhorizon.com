@@ -9,6 +9,7 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { SpLink } from '@/components/SimplePractice'
+import { JsonLd, personSchema } from '@/components/StructuredData'
 import { VerificationSeal } from '@/components/VerificationSeal'
 import { site } from '@/lib/site'
 
@@ -62,6 +63,7 @@ const scriptures = [
 export default function About() {
   return (
     <div data-pagefind-body>
+      <JsonLd data={personSchema()} />
       <PageIntro eyebrow="About" title="The heartfelt story of Soulful Horizon">
         <p>
           Soulful Horizon LCSW, PLLC is a compassionate counseling practice dedicated to holistic healing that nurtures
@@ -105,7 +107,7 @@ export default function About() {
                   label: 'Education',
                   value: ['Columbia University, MSW', 'Liberty University, MA Pastoral Counseling'],
                 },
-                { label: 'Experience', value: ['8+ years'] },
+                { label: 'Experience', value: ['10 years'] },
                 { label: 'Languages', value: ['English, Spanish & Haitian Creole'] },
               ].map((fact) => (
                 <div key={fact.label}>
@@ -124,7 +126,7 @@ export default function About() {
               🌿 Online therapy in {site.therapyArea} · Coaching available worldwide
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <SpLink className="inline-flex cursor-pointer rounded-full bg-[var(--brand-gold)] px-7 py-3 text-base font-semibold text-white transition hover:bg-[#b07f33]">
+              <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
                 Request an Appointment
               </SpLink>
             </div>

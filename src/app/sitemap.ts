@@ -27,6 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/insurance`, lastModified: getFileMtime('src/app/insurance/page.tsx'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/contact`, lastModified: getFileMtime('src/app/contact/page.tsx'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/blog`, lastModified: getFileMtime('src/app/blog/page.tsx'), changeFrequency: 'weekly', priority: 0.6 },
+    { url: `${BASE_URL}/faq`, lastModified: getFileMtime('src/app/faq/page.tsx'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/privacy`, lastModified: getFileMtime('src/app/privacy/page.tsx'), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/no-surprises-act`, lastModified: getFileMtime('src/app/no-surprises-act/page.tsx'), changeFrequency: 'yearly', priority: 0.3 },
   ]

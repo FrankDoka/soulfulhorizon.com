@@ -53,23 +53,31 @@ const faqs: { q: string; text: string; a: React.ReactNode }[] = [
   },
 ]
 
-export function FAQ() {
+/**
+ * `limit` trims the list to the highest-intent questions (the homepage shows
+ * five and links to /faq for the rest). The schema always matches what is
+ * actually rendered — Google penalises FAQ markup for hidden content.
+ */
+export function FAQ({ limit, as: Heading = 'h2' }: { limit?: number; as?: 'h1' | 'h2' } = {}) {
+  const shown = limit ? faqs.slice(0, limit) : faqs
+  const hasMore = shown.length < faqs.length
+
   return (
     <section className="bg-[var(--theme-bg-page)]">
-      <JsonLd data={faqSchema(faqs.map((f) => ({ q: f.q, text: f.text })))} />
-      <Container className="py-14 sm:py-20">
+      <JsonLd data={faqSchema(shown.map((f) => ({ q: f.q, text: f.text })))} />
+      <Container className="py-12 sm:py-16">
         <FadeIn className="mx-auto max-w-3xl">
           <div className="text-center">
             <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
               Questions
             </p>
-            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
+            <Heading className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
               Frequently asked questions
-            </h2>
+            </Heading>
           </div>
 
           <div className="mt-10 overflow-hidden rounded-3xl bg-[var(--theme-bg-surface)] ring-1 ring-[var(--theme-card-border)]">
-            {faqs.map((f) => (
+            {shown.map((f) => (
               <details key={f.q} className="group border-b border-[var(--theme-border-subtle)] last:border-b-0">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-display text-lg font-semibold text-[var(--theme-text-primary)] transition hover:text-[var(--brand-teal)] [&::-webkit-details-marker]:hidden">
                   {f.q}
@@ -79,6 +87,17 @@ export function FAQ() {
               </details>
             ))}
           </div>
+
+          {hasMore && (
+            <div className="mt-6 text-center">
+              <Link
+                href="/faq"
+                className="inline-flex min-h-11 items-center text-base font-semibold text-[var(--brand-gold-ink)] transition hover:underline"
+              >
+                See all {faqs.length} questions →
+              </Link>
+            </div>
+          )}
         </FadeIn>
       </Container>
     </section>

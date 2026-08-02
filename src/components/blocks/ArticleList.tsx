@@ -47,7 +47,7 @@ export function ArticleList({ articles }: { articles: Array<MDXEntry<Post>> }) {
                     {article.title}
                   </h2>
                   <p className="mt-3 flex-1 text-base text-[var(--theme-text-secondary)]">{article.description}</p>
-                  <span className="mt-5 text-sm font-semibold text-[var(--brand-gold-ink)] transition group-hover:text-[#b07f33]">
+                  <span className="mt-5 text-sm font-semibold text-[var(--brand-gold-ink)] transition group-hover:underline">
                     Read More »
                   </span>
                 </div>

@@ -13,7 +13,7 @@
   --brand-gold-light: #e0b878;
   /* Darker gold for small text/links on light backgrounds — meets WCAG AA
      contrast (the lighter --brand-gold is reserved for button fills). */
-  --brand-gold-ink: #8a6121;
+  --brand-gold-ink: #835c1e;
   --brand-coral: #e07a5f;
   --brand-cream: #faf6ee;
 }
@@ -22,11 +22,13 @@
 :root {
   --theme-bg-page: #faf6ee;
   --theme-bg-surface: #ffffff;
-  --theme-bg-elevated: #f3ebdd;
+  --theme-bg-elevated: #f1e6d3;
   --theme-bg-hover: rgba(30, 86, 99, 0.08);
   --theme-text-primary: #173138;
   --theme-text-secondary: #4d6168;
-  --theme-text-muted: #7c8c90;
+  /* Meets WCAG AA (4.5:1) for small text on the page, surface, and elevated
+     backgrounds — the previous #7c8c90 only reached 2.8–3.5:1. */
+  --theme-text-muted: #59696d;
   --theme-border: #e4dccb;
   --theme-border-subtle: #efe7d8;
   --theme-code-bg: #143b45;

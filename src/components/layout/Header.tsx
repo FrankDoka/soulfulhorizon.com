@@ -74,11 +74,11 @@ export function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="/contact"
-              className="rounded-full border border-[var(--brand-gold)] px-5 py-2 text-sm font-semibold text-[var(--brand-teal)] transition hover:bg-[var(--brand-gold)] hover:text-white"
+              className="btn-gold-outline rounded-full border px-5 py-2 text-sm font-semibold transition"
             >
               Contact Us
             </Link>
-            <SpLink className="cursor-pointer rounded-full bg-[var(--brand-gold)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#b07f33]">
+            <SpLink className="btn-gold cursor-pointer rounded-full px-5 py-2 text-sm font-semibold transition">
               Request Appointment
             </SpLink>
           </div>
@@ -122,11 +122,11 @@ export function Header() {
               </a>
               <SpLink
                 contact
-                className="mt-2 cursor-pointer rounded-full border border-[var(--brand-gold)] px-5 py-3 text-center text-base font-semibold text-[var(--brand-teal)] transition hover:bg-[var(--brand-gold)] hover:text-white"
+                className="btn-gold-outline mt-2 cursor-pointer rounded-full border px-5 py-3 text-center text-base font-semibold transition"
               >
                 Send a Message
               </SpLink>
-              <SpLink className="mt-2 cursor-pointer rounded-full bg-[var(--brand-gold)] px-5 py-3 text-center text-base font-semibold text-white transition hover:bg-[#b07f33]">
+              <SpLink className="btn-gold mt-2 cursor-pointer rounded-full px-5 py-3 text-center text-base font-semibold transition">
                 Request Appointment
               </SpLink>
             </nav>

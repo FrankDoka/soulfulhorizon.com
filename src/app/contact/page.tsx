@@ -8,7 +8,7 @@ import { JsonLd, practiceSchema } from '@/components/StructuredData'
 import { site } from '@/lib/site'
 
 const description =
-  'Get in touch with Soulful Horizon LCSW, PLLC — online therapy for New York & Tennessee and coaching worldwide. Request an appointment through our secure portal, or reach us by phone or email.'
+  'Contact Soulful Horizon LCSW, PLLC — online therapy for New York & Tennessee, coaching worldwide. Book through our secure portal, phone, or email.'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -39,7 +39,7 @@ export default function Contact() {
                 HIPAA-compliant booking system — it opens right here and only takes a few minutes.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <SpLink className="inline-flex cursor-pointer justify-center rounded-full bg-[var(--brand-gold)] px-6 py-3 text-base font-semibold text-white transition hover:bg-[#b07f33]">
+                <SpLink className="btn-gold inline-flex cursor-pointer justify-center rounded-full px-6 py-3 text-base font-semibold transition">
                   Request Appointment
                 </SpLink>
                 <SpLink
@@ -74,7 +74,7 @@ export default function Contact() {
                 <div>
                   <dt className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-muted)] uppercase">Phone</dt>
                   <dd className="mt-1">
-                    <a href={site.contact.phoneHref} className="text-lg text-[var(--theme-text-secondary)] transition hover:text-[var(--theme-accent)]">
+                    <a href={site.contact.phoneHref} className="inline-flex min-h-11 items-center text-lg text-[var(--theme-text-secondary)] transition hover:text-[var(--theme-accent)]">
                       {site.contact.phone}
                     </a>
                   </dd>
@@ -82,7 +82,7 @@ export default function Contact() {
                 <div>
                   <dt className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-muted)] uppercase">Email</dt>
                   <dd className="mt-1">
-                    <a href={`mailto:${site.contact.email}`} className="text-lg text-[var(--theme-text-secondary)] transition hover:text-[var(--theme-accent)] break-words">
+                    <a href={`mailto:${site.contact.email}`} className="inline-flex min-h-11 items-center text-lg text-[var(--theme-text-secondary)] transition hover:text-[var(--theme-accent)] break-words">
                       {site.contact.email}
                     </a>
                   </dd>

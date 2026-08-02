@@ -40,6 +40,78 @@ export function practiceSchema() {
   }
 }
 
+/** Clinician profile for the About page — the entity search engines tie
+ *  expertise and credentials to. */
+export function personSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Emmanuelle Lajeunesse',
+    honorificSuffix: 'LCSW',
+    jobTitle: 'Licensed Clinical Social Worker',
+    url: `${site.url}/about`,
+    image: `${site.url}/img/sh/emmanuelle.webp`,
+    telephone: site.contact.phone,
+    email: site.contact.email,
+    knowsLanguage: [...site.languages],
+    knowsAbout: ['Anxiety', 'Depression', 'Trauma', 'Faith-based counseling', 'Mental health coaching'],
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'Columbia University' },
+      { '@type': 'CollegeOrUniversity', name: 'Liberty University' },
+    ],
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'license',
+      name: 'Licensed Clinical Social Worker (LCSW)',
+      recognizedBy: { '@type': 'Organization', name: 'New York State and Tennessee licensing boards' },
+    },
+    worksFor: { '@type': 'MedicalBusiness', name: site.legalName, url: site.url },
+  }
+}
+
+/** The services offered, for the Offerings page. */
+export function servicesSchema(services: { name: string; description: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': services.map((s) => ({
+      '@type': 'Service',
+      name: s.name,
+      description: s.description,
+      serviceType: 'Mental health care',
+      provider: { '@type': 'MedicalBusiness', name: site.legalName, url: site.url },
+      areaServed: [
+        { '@type': 'State', name: 'New York' },
+        { '@type': 'State', name: 'Tennessee' },
+      ],
+      availableChannel: {
+        '@type': 'ServiceChannel',
+        serviceUrl: site.bookingUrl,
+        availableLanguage: [...site.languages],
+      },
+    })),
+  }
+}
+
+/** The blog itself, so the post list is understood as a collection. */
+export function blogSchema(posts: { title: string; description: string; href: string; date: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'Soulful Insights',
+    description: 'Reflections on faith, mental health, healing, and growth.',
+    url: `${site.url}/blog`,
+    publisher: { '@type': 'Organization', name: site.legalName, url: site.url },
+    blogPost: posts.map((p) => ({
+      '@type': 'BlogPosting',
+      headline: p.title,
+      description: p.description,
+      datePublished: p.date,
+      url: `${site.url}${p.href}`,
+      author: { '@type': 'Person', name: 'Emmanuelle Lajeunesse' },
+    })),
+  }
+}
+
 export function faqSchema(faqs: { q: string; text: string }[]) {
   return {
     '@context': 'https://schema.org',

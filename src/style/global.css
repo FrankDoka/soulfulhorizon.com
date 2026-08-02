@@ -7,6 +7,30 @@
   src: url('../../public/fonts/Mona-Sans.var.woff2') format('woff2');
 }
 
+/* Gold call-to-action buttons. Deep-teal ink on the lighter gold clears WCAG AA
+   at 6.5:1; the previous white-on-#c8954a combination was 2.67:1. Colour only —
+   size, radius, and layout stay with the utility classes at each call site. */
+.btn-gold {
+  background-color: var(--brand-gold-light);
+  color: var(--brand-teal-dark);
+}
+
+.btn-gold:hover {
+  background-color: #d3a45f;
+}
+
+/* Outline variant. --brand-gold-ink clears 3:1 against cream for the border;
+   --brand-gold at 2.48:1 did not. */
+.btn-gold-outline {
+  border-color: var(--brand-gold-ink);
+  color: var(--brand-teal);
+}
+
+.btn-gold-outline:hover {
+  background-color: var(--brand-gold-light);
+  color: var(--brand-teal-dark);
+}
+
 /* View Transitions — progressive enhancement, only applies in supported browsers */
 @view-transition {
   navigation: auto;

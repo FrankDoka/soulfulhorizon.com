@@ -12,9 +12,10 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { SpLink } from '@/components/SimplePractice'
+import { JsonLd, servicesSchema } from '@/components/StructuredData'
 
 const description =
-  'Individual therapy for New York and Tennessee, group sessions and community support, and faith-based coaching available worldwide — compassionate services to nurture your mental wellness and spiritual growth.'
+  'Individual therapy for New York and Tennessee, group sessions and community support, and faith-based mental health coaching available worldwide.'
 
 export const metadata: Metadata = {
   title: 'Offerings',
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
 const services = [
   {
     n: '01',
+    slug: 'individual-therapy',
     title: 'Individual Therapy',
     image: IndividualImg,
     body: 'Personalized one-on-one online sessions for clients in New York and Tennessee, helping you navigate life’s challenges with empathy and guidance tailored to your unique spiritual beliefs.',
@@ -36,6 +38,7 @@ const services = [
   },
   {
     n: '02',
+    slug: 'group-sessions',
     title: 'Group Sessions & Community Support',
     image: GroupImg,
     body: 'By-request group sessions and community-based support for schools, organizations, churches, and community programs — warm, supportive spaces for emotional processing, coping skills, reflection, and connection.',
@@ -43,6 +46,7 @@ const services = [
   },
   {
     n: '03',
+    slug: 'mental-health-coaching',
     title: 'Mental Health Coaching',
     image: CoachingImg,
     body: 'Faith-based coaching blends spiritual beliefs with psychological strategies, empowering you through prayer, reflection, and action. Because coaching isn’t bound by state licensure, it’s available worldwide — wherever you are.',
@@ -75,6 +79,7 @@ const why = [
 export default function Offerings() {
   return (
     <div data-pagefind-body>
+      <JsonLd data={servicesSchema(services.map((s) => ({ name: s.title, description: s.body })))} />
       <PageIntro eyebrow="Our Offerings" title="Explore our holistic offerings">
         <p>{description}</p>
       </PageIntro>
@@ -83,7 +88,10 @@ export default function Offerings() {
         <div className="space-y-16 lg:space-y-24">
           {services.map((s, i) => (
             <FadeIn key={s.title}>
-              <div className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-last' : ''}`}>
+              <div
+                id={s.slug}
+                className={`grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-16 ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-last' : ''}`}
+              >
                 <div className="overflow-hidden rounded-3xl shadow-xl">
                   <div className="aspect-[4/3]">
                     <Image src={s.image} alt={s.title} className="h-full w-full object-cover" placeholder="blur" sizes="(min-width: 1024px) 50vw, 100vw" />
@@ -174,13 +182,13 @@ export default function Offerings() {
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <SpLink
                 contact
-                className="inline-flex cursor-pointer rounded-full bg-[var(--brand-gold)] px-7 py-3 text-base font-semibold text-white transition hover:bg-[#b07f33]"
+                className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition"
               >
                 Inquire About Group Sessions
               </SpLink>
               <Link
                 href="/contact"
-                className="inline-flex rounded-full border border-[var(--brand-gold)] px-7 py-3 text-base font-semibold text-[var(--brand-teal)] transition hover:bg-[var(--brand-gold)] hover:text-white"
+                className="btn-gold-outline inline-flex rounded-full border px-7 py-3 text-base font-semibold transition"
               >
                 Contact Page
               </Link>

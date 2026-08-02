@@ -34,7 +34,7 @@ export function CTASection({
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-[#dbe6e8]">{children}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <SpLink className="inline-flex cursor-pointer rounded-full bg-[var(--brand-gold)] px-7 py-3.5 text-base font-semibold text-white transition hover:bg-[#b07f33]">
+            <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3.5 text-base font-semibold transition">
               Request an Appointment
             </SpLink>
             <a

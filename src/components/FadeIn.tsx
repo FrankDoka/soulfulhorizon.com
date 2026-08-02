@@ -31,7 +31,10 @@ function useInView<T extends Element>() {
           observer.disconnect()
         }
       },
-      { rootMargin: '0px 0px -200px' },
+      // Positive bottom margin: start the fade ~120px *before* the element
+      // reaches the viewport. A negative value here leaves a band of blank
+      // page above the fold, which reads as content failing to load.
+      { rootMargin: '0px 0px 120px' },
     )
     observer.observe(el)
     return () => observer.disconnect()

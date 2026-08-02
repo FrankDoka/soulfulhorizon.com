@@ -3,6 +3,7 @@ import { type Metadata } from 'next'
 import { ArticleList } from '@/components/blocks/ArticleList'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
+import { JsonLd, blogSchema } from '@/components/StructuredData'
 import { loadPosts } from '@/lib/mdx'
 
 const description =
@@ -23,6 +24,7 @@ export default async function Blog() {
 
   return (
     <>
+      <JsonLd data={blogSchema(articles)} />
       <PageIntro eyebrow="Soulful Insights" title="Reflections for the Journey">
         <p>{description}</p>
       </PageIntro>

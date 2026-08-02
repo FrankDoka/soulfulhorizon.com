@@ -10,11 +10,11 @@ export function MobileCTA() {
       <a
         href={site.contact.phoneHref}
         aria-label={`Call ${site.contact.phone}`}
-        className="flex h-11 w-11 flex-none items-center justify-center rounded-full border border-[var(--brand-gold)] text-[var(--brand-teal)] transition hover:bg-[var(--brand-gold)] hover:text-white"
+        className="btn-gold-outline flex h-11 w-11 flex-none items-center justify-center rounded-full border transition"
       >
         <Phone className="h-5 w-5" />
       </a>
-      <SpLink className="flex h-11 flex-1 cursor-pointer items-center justify-center rounded-full bg-[var(--brand-gold)] text-base font-semibold text-white transition hover:bg-[#b07f33]">
+      <SpLink className="btn-gold flex h-11 flex-1 cursor-pointer items-center justify-center rounded-full text-base font-semibold transition">
         Request an Appointment
       </SpLink>
     </div>
