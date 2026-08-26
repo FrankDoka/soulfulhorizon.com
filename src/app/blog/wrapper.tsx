@@ -41,6 +41,14 @@ export default async function BlogArticleWrapper({
             </h1>
             <div className="order-first flex items-center justify-center gap-x-3 text-sm text-[var(--theme-text-secondary)]">
               <time dateTime={post.date}>{formatDate(post.date)}</time>
+              {post.updated && (
+                <>
+                  <span className="text-[var(--theme-text-muted)]">·</span>
+                  <span>
+                    Updated <time dateTime={post.updated}>{formatDate(post.updated)}</time>
+                  </span>
+                </>
+              )}
               {readingTime > 0 && (
                 <>
                   <span className="text-[var(--theme-text-muted)]">·</span>

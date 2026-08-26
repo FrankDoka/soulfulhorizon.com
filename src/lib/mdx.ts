@@ -9,6 +9,7 @@ const postSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD'),
+  updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD').optional(),
   type: z.enum(['Article', 'Reflection', 'Guide']),
   icon: z.any(),
   image: z.any().optional(),
@@ -56,6 +57,7 @@ interface MDX {
 }
 
 export interface Post extends MDX {
+  updated?: string
   icon: LucideIcon
   image?: StaticImageData
   type: 'Article' | 'Reflection' | 'Guide'

@@ -128,6 +128,7 @@ export function blogPostSchema(post: {
   title: string
   description: string
   date: string
+  updated?: string
   href: string
   author: { name: string }
 }) {
@@ -137,7 +138,7 @@ export function blogPostSchema(post: {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     image: `${site.url}${post.href}/opengraph-image`,
     url: `${site.url}${post.href}`,
     author: {
