@@ -280,8 +280,8 @@ async function Insights() {
                   </div>
                 )}
                 <div className="min-w-0">
-                  <time dateTime={post.date} className="text-xs text-[var(--brand-gold-ink)]">
-                    {formatDate(post.date)}
+                  <time dateTime={post.updated ?? post.date} className="text-xs text-[var(--brand-gold-ink)]">
+                    {formatDate(post.updated ?? post.date)}
                   </time>
                   <h3 className="mt-1 font-display text-lg font-semibold text-[var(--brand-teal)] group-hover:underline">
                     {post.title}
