@@ -304,6 +304,33 @@ async function Insights() {
   )
 }
 
+function FreeGuide() {
+  return (
+    <section className="bg-[var(--theme-bg-elevated)]">
+      <Container className="pb-12 sm:pb-16">
+        <FadeIn className="mx-auto max-w-3xl rounded-3xl bg-[var(--theme-bg-surface)] p-8 text-center shadow-sm ring-1 ring-[var(--theme-card-border)] sm:p-10">
+          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
+            Free Guide
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-4xl">
+            From Pressure to Peace
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--theme-text-secondary)]">
+            A gentle starting point for Christian women who are tired of carrying too much and want
+            to begin moving from overwhelm toward greater peace.
+          </p>
+          <a
+            href="https://online.soulfulhorizon.com/burnout-guide"
+            className="btn-gold mt-6 inline-flex rounded-full px-7 py-3 text-base font-semibold transition"
+          >
+            Download the Free Guide
+          </a>
+        </FadeIn>
+      </Container>
+    </section>
+  )
+}
+
 const focusAreas = [
   'Anxiety',
   'Depression',
@@ -398,6 +425,7 @@ export default async function Home() {
       <HowItWorks />
       <MidPageCTA />
       <Insights />
+      <FreeGuide />
       {/* 6, not 5: private pay now sits at position 5, and the faith question
           after it needs to stay on the homepage. */}
       <FAQ limit={6} />

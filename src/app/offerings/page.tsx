@@ -115,6 +115,28 @@ export default function Offerings() {
         </div>
       </Container>
 
+      {/* Free resource / lead magnet */}
+      <Container className="mt-16 sm:mt-24">
+        <FadeIn className="mx-auto max-w-3xl rounded-3xl bg-[var(--theme-bg-elevated)] p-8 text-center ring-1 ring-[var(--theme-card-border)] sm:p-10">
+          <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
+            Free Resource
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-4xl">
+            From Pressure to Peace
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--theme-text-secondary)]">
+            A short, free guide for Christian women who are tired of carrying so much. It looks at
+            why rest can feel so hard and offers a gentle first step out of overwhelm.
+          </p>
+          <a
+            href="https://online.soulfulhorizon.com/burnout-guide"
+            className="btn-gold mt-6 inline-flex rounded-full px-7 py-3 text-base font-semibold transition"
+          >
+            Get the Free Guide
+          </a>
+        </FadeIn>
+      </Container>
+
       {/* Group Sessions & Community Support — full detail */}
       <section className="mt-16 bg-[var(--theme-bg-elevated)] sm:mt-24">
         <Container className="py-14 sm:py-20">
