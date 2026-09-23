@@ -72,11 +72,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
         <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add('js')`,
-          }}
-        />
       </head>
       <body className="flex min-h-full flex-col text-base" suppressHydrationWarning>
         <RootLayout>{children}</RootLayout>

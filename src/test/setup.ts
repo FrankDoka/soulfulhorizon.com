@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom/vitest'
 import { vi } from 'vitest'
 
-// jsdom doesn't implement IntersectionObserver; FadeIn uses it for scroll
-// reveal. A no-op stub is enough — FadeIn always renders its children, the
-// observer only toggles a CSS class.
+// jsdom doesn't implement IntersectionObserver; TableOfContents uses it to
+// highlight the active heading. A no-op stub is enough for rendering.
 class IntersectionObserverStub {
   observe = vi.fn()
   unobserve = vi.fn()
