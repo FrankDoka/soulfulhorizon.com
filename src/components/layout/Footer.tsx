@@ -8,7 +8,7 @@ import { navLinks, site } from '@/lib/site'
 
 function Navigation() {
   return (
-    <nav>
+    <nav aria-label="Footer">
       <div className="font-display text-sm font-semibold tracking-wider text-[var(--theme-text-primary)]">Explore</div>
       <ul role="list" className="mt-3 grid grid-cols-2 gap-x-8 text-sm text-[var(--theme-text-secondary)]">
         <li className="mt-2">

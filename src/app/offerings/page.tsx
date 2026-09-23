@@ -13,6 +13,7 @@ import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { SpLink } from '@/components/SimplePractice'
 import { JsonLd, servicesSchema } from '@/components/StructuredData'
+import { ogBase } from '@/lib/site'
 
 const description =
   'Individual therapy for New York and Tennessee, group sessions and community support, and faith-based coaching for Christian women, available worldwide.'
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
   title: 'Offerings',
   description,
   openGraph: {
+    ...ogBase,
     title: 'Offerings — Soulful Horizon',
     description,
     url: 'https://soulfulhorizon.com/offerings',
@@ -79,7 +81,17 @@ const why = [
 export default function Offerings() {
   return (
     <div data-pagefind-body>
-      <JsonLd data={servicesSchema(services.map((s) => ({ name: s.title, description: s.body })))} />
+      <JsonLd
+        data={servicesSchema(
+          services.map((s) => ({
+            name: s.title,
+            description: s.body,
+            ...(s.slug === 'faith-based-coaching'
+              ? { serviceType: 'Life coaching', worldwide: true }
+              : {}),
+          }))
+        )}
+      />
       <PageIntro eyebrow="Our Offerings" title="Explore our holistic offerings">
         <p>{description}</p>
       </PageIntro>
@@ -98,7 +110,9 @@ export default function Offerings() {
                   </div>
                 </div>
                 <div>
-                  <span className="font-display text-5xl font-medium text-[var(--theme-border)]">{s.n}</span>
+                  <span aria-hidden="true" className="font-display text-5xl font-medium text-[var(--theme-border)]">
+                    {s.n}
+                  </span>
                   <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-[var(--brand-teal)]">
                     {s.title}
                   </h2>

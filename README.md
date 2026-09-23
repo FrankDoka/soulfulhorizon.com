@@ -11,8 +11,9 @@ scheduling, intake, and any protected health information live in **SimplePractic
 
 - Next.js 15 (App Router) — `output: 'export'` static HTML
 - Tailwind CSS v4, MDX blog, TypeScript
-- Pagefind site search, Vitest tests
-- Deploy: GitHub → Cloudflare Pages (build output `out/`)
+- Vitest tests
+- Deploy: GitHub → Cloudflare Pages (build output `out/`). Pushing `main` publishes;
+  other branches get a preview at `<branch>.soulfulhorizon-com.pages.dev`.
 
 Forked from the frankdoka.com codebase to reuse its layout, MDX pipeline, and
 Cloudflare static-export setup.
@@ -22,14 +23,13 @@ Cloudflare static-export setup.
 ```bash
 npm install
 npm run dev        # http://localhost:3000 (or --port to change)
-npm run build      # next build + pagefind → out/
+npm run build      # next build → out/
 npm run test       # vitest
 ```
 
 ## Notes
 
 - Brand palette (deep teal / gold / coral / cream) lives in `src/style/tailwind.css`.
-  Light theme is the default; a deep-teal dark variant is available via the toggle.
 - Site config (booking URL, contact info, nav) is centralized in `src/lib/site.ts`.
 - Security headers are in `public/_headers` (the next.config `headers()` hook does
   not run for static exports).

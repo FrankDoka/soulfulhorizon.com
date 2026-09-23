@@ -79,7 +79,8 @@ export function FAQ({ limit, as: Heading = 'h2' }: { limit?: number; as?: 'h1' |
 
   return (
     <section className="bg-[var(--theme-bg-page)]">
-      <JsonLd data={faqSchema(shown.map((f) => ({ q: f.q, text: f.text })))} />
+      {/* Google wants FAQ markup on one page only: the full /faq page. */}
+      {!limit && <JsonLd data={faqSchema(faqs.map((f) => ({ q: f.q, text: f.text })))} />}
       <Container className="py-12 sm:py-16">
         <FadeIn className="mx-auto max-w-3xl">
           <div className="text-center">

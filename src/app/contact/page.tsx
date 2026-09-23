@@ -5,7 +5,7 @@ import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { SpLink } from '@/components/SimplePractice'
 import { JsonLd, practiceSchema } from '@/components/StructuredData'
-import { site } from '@/lib/site'
+import { ogBase, site } from '@/lib/site'
 
 const description =
   'Contact Soulful Horizon LCSW, PLLC — online therapy for New York & Tennessee, coaching worldwide. Book through our secure portal, phone, or email.'
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: 'Contact',
   description,
   openGraph: {
+    ...ogBase,
     title: 'Contact — Soulful Horizon',
     description,
     url: 'https://soulfulhorizon.com/contact',

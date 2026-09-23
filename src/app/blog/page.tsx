@@ -5,6 +5,7 @@ import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { JsonLd, blogSchema } from '@/components/StructuredData'
 import { loadPosts } from '@/lib/mdx'
+import { ogBase } from '@/lib/site'
 
 const description =
   'Reflections on faith, mental health, healing, and growth — practical encouragement for the journey toward wholeness.'
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   title: 'Soulful Insights',
   description,
   openGraph: {
+    ...ogBase,
     title: 'Soulful Insights — Soulful Horizon',
     description,
     url: 'https://soulfulhorizon.com/blog',

@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 
 import { CTASection } from '@/components/CTASection'
 import { FAQ } from '@/components/FAQ'
+import { ogBase } from '@/lib/site'
 
 const description =
   'Answers about online therapy with Soulful Horizon — sessions, fees, insurance, faith integration, and how to book a free consultation.'
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
   description,
   openGraph: {
+    ...ogBase,
     title: 'FAQ — Soulful Horizon',
     description,
     url: 'https://soulfulhorizon.com/faq',

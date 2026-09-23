@@ -18,6 +18,7 @@ export default async function BlogArticleWrapper({
 }) {
   const allPosts = await loadPosts()
   const fullPost = allPosts.find(({ title }) => title === post.title)
+  if (!fullPost) throw new Error(`Blog post not found in loadPosts(): ${post.title}`)
   const currentTags = new Set(post.tags ?? [])
   const morePosts = allPosts
     .filter(({ title }) => title !== post.title)
@@ -27,12 +28,12 @@ export default async function BlogArticleWrapper({
       return bShared - aShared || b.date.localeCompare(a.date)
     })
     .slice(0, 2)
-  const slug = fullPost?.href.replace('/blog/', '') ?? ''
+  const slug = fullPost.href.replace('/blog/', '')
   const readingTime = slug ? getReadingTime(slug) : 0
 
   return (
     <>
-      <JsonLd data={blogPostSchema(post)} />
+      <JsonLd data={blogPostSchema({ ...post, href: fullPost.href })} />
       <Container as="article" className="mt-12 sm:mt-16" data-pagefind-body>
         <FadeIn>
           <header className="mx-auto flex max-w-5xl flex-col text-center">

@@ -35,7 +35,13 @@ export function ArticleList({ articles }: { articles: Array<MDXEntry<Post>> }) {
                 )}
                 <div className="flex flex-1 flex-col p-7">
                   <div className="flex items-center gap-2 text-sm text-[var(--brand-gold-ink)]">
-                    <time dateTime={article.updated ?? article.date}>{formatDate(article.updated ?? article.date)}</time>
+                    {article.updated ? (
+                      <span>
+                        Updated <time dateTime={article.updated}>{formatDate(article.updated)}</time>
+                      </span>
+                    ) : (
+                      <time dateTime={article.date}>{formatDate(article.date)}</time>
+                    )}
                     {mins > 0 && (
                       <>
                         <span className="text-[var(--theme-text-muted)]">·</span>

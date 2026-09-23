@@ -15,7 +15,10 @@ function ensureWidget(): Promise<void> {
     s.src = sp.script
     s.async = true
     s.onload = () => resolve()
-    s.onerror = () => reject(new Error('SimplePractice widget failed to load'))
+    s.onerror = () => {
+      widgetPromise = null // allow a retry on the next click
+      reject(new Error('SimplePractice widget failed to load'))
+    }
     document.body.appendChild(s)
   })
   return widgetPromise
@@ -57,7 +60,9 @@ export function SpLink({ contact = false, className, children }: SpLinkProps) {
     } catch {
       // fall through to the portal
     }
-    window.open(sp.href, '_blank', 'noopener,noreferrer')
+    // Not window.open: after the await it's no longer tied to the click, so
+    // popup blockers (Safari) can silently swallow it.
+    window.location.href = sp.href
   }
 
   return (

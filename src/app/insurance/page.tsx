@@ -5,7 +5,7 @@ import { CTASection } from '@/components/CTASection'
 import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
-import { site } from '@/lib/site'
+import { ogBase, site } from '@/lib/site'
 
 const description =
   'Soulful Horizon accepts select insurance plans and offers private-pay therapy, with sliding-scale rates and superbills available.'
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: 'Insurance',
   description,
   openGraph: {
+    ...ogBase,
     title: 'Insurance — Soulful Horizon',
     description,
     url: 'https://soulfulhorizon.com/insurance',

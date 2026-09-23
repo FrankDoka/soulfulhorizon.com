@@ -3,10 +3,11 @@ import { type Metadata } from 'next'
 import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
-import { site } from '@/lib/site'
+import { ogBase, site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'No Surprises Act',
+  openGraph: { ...ogBase, title: 'No Surprises Act — Soulful Horizon', url: 'https://soulfulhorizon.com/no-surprises-act' },
   description:
     'Your right to a Good Faith Estimate under the No Surprises Act when you are uninsured or paying for services yourself.',
   robots: { index: true, follow: true },

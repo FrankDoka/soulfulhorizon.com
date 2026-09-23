@@ -36,6 +36,14 @@ export const site = {
   },
 } as const
 
+// A page-level `openGraph` replaces the layout's entirely (Next doesn't merge
+// it), so every page spreads this to keep the site name, type and share image.
+export const ogBase = {
+  siteName: site.name,
+  type: 'website' as const,
+  images: ['/opengraph-image'],
+}
+
 export const navLinks = [
   { href: '/about', label: 'About' },
   { href: '/offerings', label: 'Offerings' },

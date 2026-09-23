@@ -18,7 +18,7 @@ export function practiceSchema() {
     url: site.url,
     description:
       'Faith-based online therapy for clients in New York and Tennessee, plus faith-based coaching for Christian women available worldwide, for adolescents, young adults, and adults. Specializing in anxiety, depression, and trauma.',
-    telephone: site.contact.phone,
+    telephone: '+1-' + site.contact.phone,
     email: site.contact.email,
     availableLanguage: [...site.languages],
     availableService: {
@@ -51,7 +51,7 @@ export function personSchema() {
     jobTitle: 'Licensed Clinical Social Worker',
     url: `${site.url}/about`,
     image: `${site.url}/img/sh/emmanuelle.webp`,
-    telephone: site.contact.phone,
+    telephone: '+1-' + site.contact.phone,
     email: site.contact.email,
     knowsLanguage: [...site.languages],
     knowsAbout: ['Anxiety', 'Depression', 'Trauma', 'Faith-based counseling', 'Faith-based coaching'],
@@ -70,19 +70,23 @@ export function personSchema() {
 }
 
 /** The services offered, for the Offerings page. */
-export function servicesSchema(services: { name: string; description: string }[]) {
+export function servicesSchema(
+  services: { name: string; description: string; serviceType?: string; worldwide?: boolean }[]
+) {
   return {
     '@context': 'https://schema.org',
     '@graph': services.map((s) => ({
       '@type': 'Service',
       name: s.name,
       description: s.description,
-      serviceType: 'Mental health care',
+      serviceType: s.serviceType ?? 'Mental health care',
       provider: { '@type': 'MedicalBusiness', name: site.legalName, url: site.url },
-      areaServed: [
-        { '@type': 'State', name: 'New York' },
-        { '@type': 'State', name: 'Tennessee' },
-      ],
+      areaServed: s.worldwide
+        ? 'Worldwide'
+        : [
+            { '@type': 'State', name: 'New York' },
+            { '@type': 'State', name: 'Tennessee' },
+          ],
       availableChannel: {
         '@type': 'ServiceChannel',
         serviceUrl: site.bookingUrl,

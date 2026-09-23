@@ -23,7 +23,7 @@ export default async function OGImage({ params }: { params: Promise<{ slug: stri
   const description = post?.description ?? ''
   const tags = post?.tags?.slice(0, 4) ?? []
   const date = post?.date
-    ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    ? new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
     : ''
 
   return new ImageResponse(

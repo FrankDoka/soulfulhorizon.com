@@ -1,4 +1,5 @@
 import { BlogPost } from '@/lib/mdx'
+import { ogBase } from '@/lib/site'
 import { HandHeart } from 'lucide-react'
 import heroImage from '@public/img/sh/ocean-sunset.webp'
 
@@ -19,6 +20,9 @@ export const metadata = {
   title: post.title,
   description: post.description,
   openGraph: {
+    ...ogBase,
+    type: 'article',
+    images: ['/blog/when-being-the-dependable-one-becomes-too-much/opengraph-image'],
     title: post.title,
     description: post.description,
     url: 'https://soulfulhorizon.com/blog/when-being-the-dependable-one-becomes-too-much',

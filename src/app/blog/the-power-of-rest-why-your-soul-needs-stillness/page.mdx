@@ -1,4 +1,5 @@
 import { BlogPost } from '@/lib/mdx'
+import { ogBase } from '@/lib/site'
 import { Moon } from 'lucide-react'
 import heroImage from '@public/img/sh/mountain.webp'
 
@@ -6,7 +7,7 @@ export const post = {
   ...BlogPost,
   title: 'The Power of Rest: Why Your Soul Needs Stillness',
   description:
-    'Rest isn’t laziness — it’s necessary for your mind, body, and soul. A look at what real rest is, why it matters for mental health, and practical, faith-rooted ways to find it.',
+    'Rest isn’t laziness. What real rest is, why it matters for mental health, and practical, faith-rooted ways to find it for your mind, body, and soul.',
   date: '2025-06-02',
   updated: '2026-08-26',
   type: 'Reflection',
@@ -19,6 +20,9 @@ export const metadata = {
   title: post.title,
   description: post.description,
   openGraph: {
+    ...ogBase,
+    type: 'article',
+    images: ['/blog/the-power-of-rest-why-your-soul-needs-stillness/opengraph-image'],
     title: post.title,
     description: post.description,
     url: 'https://soulfulhorizon.com/blog/the-power-of-rest-why-your-soul-needs-stillness',
@@ -55,7 +59,7 @@ It’s also worth naming the difference between rest and avoidance. Rest is inte
 
 Neglecting rest can contribute to burnout, anxiety, and depression. Rest is widely understood to support stress regulation, emotional resilience, and the mental space needed for clarity and creativity.
 
-> “Come to me, all who labor and are heavy laden, and I will give you rest.” — Matthew 11:28
+> “Come to me, all who labor and are heavy laden, and I will give you rest.” — Matthew 11:28 (ESV)
 
 ## Practical Ways to Rest Your Soul
 

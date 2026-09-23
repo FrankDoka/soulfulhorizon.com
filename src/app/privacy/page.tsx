@@ -3,10 +3,11 @@ import { type Metadata } from 'next'
 import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
-import { site } from '@/lib/site'
+import { ogBase, site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Notice of Privacy Practices',
+  openGraph: { ...ogBase, title: 'Notice of Privacy Practices — Soulful Horizon', url: 'https://soulfulhorizon.com/privacy' },
   description:
     'How Soulful Horizon LCSW, PLLC may use and disclose your protected health information, and your rights regarding that information under HIPAA.',
   robots: { index: true, follow: true },

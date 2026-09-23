@@ -11,7 +11,7 @@ import { PageIntro } from '@/components/PageIntro'
 import { SpLink } from '@/components/SimplePractice'
 import { JsonLd, personSchema } from '@/components/StructuredData'
 import { VerificationSeal } from '@/components/VerificationSeal'
-import { site } from '@/lib/site'
+import { ogBase, site } from '@/lib/site'
 
 const description =
   'Meet Emmanuelle Lajeunesse, LCSW, and learn about the mission, vision, and core values behind Soulful Horizon LCSW, PLLC.'
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: 'About',
   description,
   openGraph: {
+    ...ogBase,
     title: 'About — Soulful Horizon',
     description,
     url: 'https://soulfulhorizon.com/about',
