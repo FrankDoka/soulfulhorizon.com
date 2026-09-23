@@ -44,11 +44,11 @@ const offerings = [
     body: 'By-request group sessions and community support for schools, organizations, churches, and community programs — a warm space for processing, coping skills, reflection, and connection.',
   },
   {
-    title: 'Mental Health Coaching',
-    href: '/offerings#mental-health-coaching',
+    title: 'Faith-Based Coaching',
+    href: '/offerings#faith-based-coaching',
     image: CoachingImg,
     icon: Compass,
-    body: 'Build resilience and reach your goals through supportive, faith-based coaching — available worldwide, wherever you are.',
+    body: 'For Christian women carrying too much: build sustainable rhythms that make room for rest, connection, and your own needs — available worldwide.',
   },
 ]
 

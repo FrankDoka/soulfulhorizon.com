@@ -40,7 +40,7 @@ export default function OGImage() {
             Soulful Horizon
           </div>
           <div style={{ fontSize: 28, color: '#b7c6c9', marginTop: '16px' }}>
-            Faith-Based Therapy &amp; Mental Health Coaching
+            Faith-Based Therapy &amp; Coaching
           </div>
           <div
             style={{

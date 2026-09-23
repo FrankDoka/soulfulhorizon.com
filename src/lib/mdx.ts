@@ -7,6 +7,7 @@ import { z } from 'zod'
 // Zod schemas for build-time validation of MDX metadata
 const postSchema = z.object({
   title: z.string().min(1),
+  subtitle: z.string().min(1).optional(),
   description: z.string().min(1),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD'),
   updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD').optional(),
@@ -57,6 +58,7 @@ interface MDX {
 }
 
 export interface Post extends MDX {
+  subtitle?: string
   updated?: string
   icon: LucideIcon
   image?: StaticImageData

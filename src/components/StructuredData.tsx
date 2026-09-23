@@ -17,7 +17,7 @@ export function practiceSchema() {
     name: site.legalName,
     url: site.url,
     description:
-      'Faith-based online therapy for clients in New York and Tennessee, plus mental health coaching available worldwide, for adolescents, young adults, and adults. Specializing in anxiety, depression, and trauma.',
+      'Faith-based online therapy for clients in New York and Tennessee, plus faith-based coaching for Christian women available worldwide, for adolescents, young adults, and adults. Specializing in anxiety, depression, and trauma.',
     telephone: site.contact.phone,
     email: site.contact.email,
     availableLanguage: [...site.languages],
@@ -35,7 +35,7 @@ export function practiceSchema() {
       jobTitle: 'Licensed Clinical Social Worker (LCSW)',
     },
     medicalSpecialty: 'Psychiatric',
-    knowsAbout: ['Anxiety', 'Depression', 'Trauma', 'Faith-based counseling', 'Mental health coaching'],
+    knowsAbout: ['Anxiety', 'Depression', 'Trauma', 'Faith-based counseling', 'Faith-based coaching'],
     sameAs: [site.instagram, site.googleBusiness],
   }
 }
@@ -54,7 +54,7 @@ export function personSchema() {
     telephone: site.contact.phone,
     email: site.contact.email,
     knowsLanguage: [...site.languages],
-    knowsAbout: ['Anxiety', 'Depression', 'Trauma', 'Faith-based counseling', 'Mental health coaching'],
+    knowsAbout: ['Anxiety', 'Depression', 'Trauma', 'Faith-based counseling', 'Faith-based coaching'],
     alumniOf: [
       { '@type': 'CollegeOrUniversity', name: 'Columbia University' },
       { '@type': 'CollegeOrUniversity', name: 'Liberty University' },

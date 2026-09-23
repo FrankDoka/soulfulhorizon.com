@@ -15,7 +15,7 @@ import { SpLink } from '@/components/SimplePractice'
 import { JsonLd, servicesSchema } from '@/components/StructuredData'
 
 const description =
-  'Individual therapy for New York and Tennessee, group sessions and community support, and faith-based mental health coaching available worldwide.'
+  'Individual therapy for New York and Tennessee, group sessions and community support, and faith-based coaching for Christian women, available worldwide.'
 
 export const metadata: Metadata = {
   title: 'Offerings',
@@ -46,10 +46,10 @@ const services = [
   },
   {
     n: '03',
-    slug: 'mental-health-coaching',
-    title: 'Mental Health Coaching',
+    slug: 'faith-based-coaching',
+    title: 'Faith-Based Coaching',
     image: CoachingImg,
-    body: 'Faith-based coaching blends spiritual beliefs with psychological strategies, empowering you through prayer, reflection, and action. Because coaching isn’t bound by state licensure, it’s available worldwide — wherever you are.',
+    body: 'Coaching for Christian women who are tired of carrying too much. Together we look at what you’re carrying, your real capacity, and the beliefs behind the pressure, then build sustainable rhythms that make room for rest, connection, and time with God. Because coaching isn’t bound by state licensure, it’s available worldwide.',
     note: 'Available worldwide',
   },
 ]

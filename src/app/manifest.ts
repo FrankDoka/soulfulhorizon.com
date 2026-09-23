@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'Soulful Horizon LCSW, PLLC',
     short_name: 'Soulful Horizon',
     description:
-      'Faith-based individual therapy, group sessions, and mental health coaching for anxiety, depression, and trauma.',
+      'Faith-based individual therapy and group sessions for anxiety, depression, and trauma, plus coaching for Christian women.',
     start_url: '/',
     // 'browser' (not 'standalone') so the site isn't treated as an installable
     // PWA — this is an info site, not an app, so we don't want the mobile

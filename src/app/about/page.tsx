@@ -67,7 +67,7 @@ export default function About() {
       <PageIntro eyebrow="About" title="The heartfelt story of Soulful Horizon">
         <p>
           Soulful Horizon LCSW, PLLC is a compassionate counseling practice dedicated to holistic healing that nurtures
-          the soul — offering individual counseling, group sessions, and mental health coaching, all infused with
+          the soul — offering individual counseling, group sessions, and faith-based coaching for Christian women, all infused with
           empathy and understanding.
         </p>
       </PageIntro>
@@ -166,7 +166,7 @@ export default function About() {
               <h3 className="font-display text-2xl font-semibold text-[var(--theme-text-primary)]">Our Mission</h3>
               <p className="mt-4 text-lg text-[var(--theme-text-secondary)]">
                 To support individuals who have experienced trauma and struggle with anxiety and depression — guiding
-                them through therapeutic interventions and supportive coaching.
+                them through therapeutic interventions and faith-based coaching.
               </p>
             </div>
           </FadeIn>

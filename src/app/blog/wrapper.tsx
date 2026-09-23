@@ -39,6 +39,11 @@ export default async function BlogArticleWrapper({
             <h1 className="mt-6 font-display text-5xl font-medium tracking-tight [text-wrap:balance] text-[var(--theme-text-primary)] sm:text-6xl">
               {post.title}
             </h1>
+            {post.subtitle && (
+              <p className="mx-auto mt-4 max-w-2xl text-xl text-[var(--theme-text-secondary)] italic [text-wrap:balance]">
+                {post.subtitle}
+              </p>
+            )}
             <div className="order-first flex items-center justify-center gap-x-3 text-sm text-[var(--theme-text-secondary)]">
               {post.updated ? (
                 <span>
