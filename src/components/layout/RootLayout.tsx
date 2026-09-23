@@ -17,7 +17,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
       </main>
       <Footer />
       {/* Spacer so the sticky mobile bar never covers footer content */}
-      <div className="h-16 lg:hidden" aria-hidden="true" />
+      <div className="h-16 xl:hidden" aria-hidden="true" />
       <MobileCTA />
     </>
   )
