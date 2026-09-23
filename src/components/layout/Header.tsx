@@ -42,7 +42,7 @@ export function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-7 xl:flex" aria-label="Primary">
             <Link
               href="/"
               className="text-[15px] font-medium text-[var(--theme-text-secondary)] transition hover:text-[var(--brand-teal)]"
@@ -71,7 +71,7 @@ export function Header() {
           </nav>
 
           {/* Desktop CTAs */}
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <Link
               href="/contact"
               className="btn-gold-outline rounded-full border px-5 py-2 text-sm font-semibold transition"
@@ -89,7 +89,7 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Toggle menu"
-            className="rounded-full p-2 text-[var(--brand-teal)] transition hover:bg-[var(--theme-bg-hover)] lg:hidden"
+            className="rounded-full p-2 text-[var(--brand-teal)] transition hover:bg-[var(--theme-bg-hover)] xl:hidden"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -98,7 +98,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-[var(--theme-border)] bg-[var(--theme-bg-surface)] lg:hidden">
+        <div className="border-t border-[var(--theme-border)] bg-[var(--theme-bg-surface)] xl:hidden">
           <Container className="py-4">
             <nav className="flex flex-col gap-1" aria-label="Mobile">
               {[{ href: '/', label: 'Home' }, ...navLinks].map((l) => (

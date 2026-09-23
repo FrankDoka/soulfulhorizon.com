@@ -36,6 +36,12 @@ export const site = {
   },
 } as const
 
+// From Pressure to Peace signup (GoHighLevel). UTM-tagged so GoHighLevel's
+// attribution shows which signups came from the website, and from which spot.
+export function guideUrl(placement: string) {
+  return `https://online.soulfulhorizon.com/burnout-guide?utm_source=soulfulhorizon.com&utm_medium=website&utm_campaign=from-pressure-to-peace&utm_content=${placement}`
+}
+
 // A page-level `openGraph` replaces the layout's entirely (Next doesn't merge
 // it), so every page spreads this to keep the site name, type and share image.
 export const ogBase = {
@@ -47,6 +53,7 @@ export const ogBase = {
 export const navLinks = [
   { href: '/about', label: 'About' },
   { href: '/offerings', label: 'Offerings' },
+  { href: '/coaching', label: 'Coaching' },
   { href: '/insurance', label: 'Insurance' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },

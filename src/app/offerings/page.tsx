@@ -13,10 +13,10 @@ import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
 import { SpLink } from '@/components/SimplePractice'
 import { JsonLd, servicesSchema } from '@/components/StructuredData'
-import { ogBase } from '@/lib/site'
+import { guideUrl, ogBase } from '@/lib/site'
 
 const description =
-  'Individual therapy for New York and Tennessee, group sessions and community support, and faith-based coaching for Christian women, available worldwide.'
+  'Psychotherapy for adolescents and adults in New York and Tennessee, faith-based coaching for Christian women worldwide, and group sessions by request.'
 
 export const metadata: Metadata = {
   title: 'Offerings',
@@ -33,26 +33,28 @@ const services = [
   {
     n: '01',
     slug: 'individual-therapy',
-    title: 'Individual Therapy',
+    title: 'Psychotherapy',
     image: IndividualImg,
-    body: 'Personalized one-on-one online sessions for clients in New York and Tennessee, helping you navigate life’s challenges with empathy and evidence-based guidance tailored to you. Christian faith integration is available for clients who want it.',
+    body: 'Clinical mental health treatment for adolescents and adults in New York and Tennessee. Personalized one-on-one online sessions offer evidence-based care for anxiety, depression, trauma, and burnout. Faith integration is optional and client-led.',
     note: 'Online · New York & Tennessee',
+    cta: 'therapy',
   },
   {
     n: '02',
-    slug: 'group-sessions',
-    title: 'Group Sessions & Community Support',
-    image: GroupImg,
-    body: 'By-request group sessions and community-based support for schools, organizations, churches, and community programs — warm, supportive spaces for emotional processing, coping skills, reflection, and connection.',
-    note: 'By request · details below',
-  },
-  {
-    n: '03',
     slug: 'faith-based-coaching',
     title: 'Faith-Based Coaching',
     image: CoachingImg,
     body: 'Coaching for Christian women who are tired of carrying too much. Together we look at what you’re carrying, your real capacity, and the beliefs behind the pressure, then build sustainable rhythms that make room for rest, connection, and time with God. Because coaching isn’t bound by state licensure, it’s available worldwide.',
     note: 'Available worldwide',
+    cta: 'coaching',
+  },
+  {
+    n: '03',
+    slug: 'group-sessions',
+    title: 'Group Sessions & Community Support',
+    image: GroupImg,
+    body: 'By-request group sessions and community-based support for schools, organizations, churches, and community programs — warm, supportive spaces for emotional processing, coping skills, reflection, and connection.',
+    note: 'By request · details below',
   },
 ]
 
@@ -93,7 +95,11 @@ export default function Offerings() {
         )}
       />
       <PageIntro eyebrow="Our Offerings" title="Explore our holistic offerings">
-        <p>{description}</p>
+        <p>
+          Soulful Horizon offers two distinct services: <strong>psychotherapy</strong> for adolescents and adults in
+          New York and Tennessee, and <strong>faith-based coaching</strong> for Christian women, available worldwide.
+          Group sessions and community support are also available by request.
+        </p>
       </PageIntro>
 
       <Container className="mt-10 sm:mt-14">
@@ -122,6 +128,23 @@ export default function Offerings() {
                       {s.note}
                     </p>
                   )}
+                  {s.cta === 'therapy' && (
+                    <div className="mt-6">
+                      <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
+                        Request a Therapy Appointment
+                      </SpLink>
+                    </div>
+                  )}
+                  {s.cta === 'coaching' && (
+                    <div className="mt-6">
+                      <Link
+                        href="/coaching"
+                        className="btn-gold-outline inline-flex rounded-full border px-7 py-3 text-base font-semibold transition"
+                      >
+                        Explore Coaching
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             </FadeIn>
@@ -143,7 +166,7 @@ export default function Offerings() {
             why rest can feel so hard and offers a gentle first step out of overwhelm.
           </p>
           <a
-            href="https://online.soulfulhorizon.com/burnout-guide"
+            href={guideUrl('offerings')}
             className="btn-gold mt-6 inline-flex rounded-full px-7 py-3 text-base font-semibold transition"
           >
             Get the Free Guide

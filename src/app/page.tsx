@@ -1,11 +1,10 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { UserRound, Users, Compass, MessageCircle, HeartHandshake, Sparkles, ShieldCheck, Award, Languages, Video } from 'lucide-react'
+import { UserRound, Compass, MessageCircle, HeartHandshake, Sparkles, ShieldCheck, Award, Languages, Video } from 'lucide-react'
 
 import LogoImg from '@public/img/sh/logo.webp'
 import IndividualImg from '@public/img/sh/individual.webp'
-import GroupImg from '@public/img/sh/group.webp'
 import CoachingImg from '@public/img/sh/coaching.webp'
 import PortraitImg from '@public/img/sh/emmanuelle.webp'
 import MountainImg from '@public/img/sh/mountain.webp'
@@ -19,6 +18,7 @@ import { WaveDivider } from '@/components/WaveDivider'
 import { JsonLd, practiceSchema } from '@/components/StructuredData'
 import { loadPosts } from '@/lib/mdx'
 import { formatDate } from '@/lib/formatDate'
+import { guideUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: {
@@ -28,27 +28,24 @@ export const metadata: Metadata = {
     'Online therapy for anxiety, depression, trauma, and burnout in New York & Tennessee with Emmanuelle Lajeunesse, LCSW. Free 15-minute consult.',
 }
 
-const offerings = [
+// The two distinct services. Therapy stays first and keeps the appointment
+// button; group sessions are a by-request extra, linked beneath the cards.
+const pathways = [
   {
-    title: 'Individual Therapy',
+    eyebrow: 'Therapy · New York & Tennessee',
+    title: 'Psychotherapy',
     href: '/offerings#individual-therapy',
     image: IndividualImg,
     icon: UserRound,
-    body: 'One-on-one sessions with personalized, evidence-based strategies to support your emotional well-being. Christian faith integration is available for clients who want it.',
+    body: 'Clinical mental health treatment for adolescents and adults in New York and Tennessee, for anxiety, depression, trauma, and burnout. Faith integration is optional and client-led.',
   },
   {
-    title: 'Group Sessions & Community Support',
-    href: '/offerings#group-sessions',
-    image: GroupImg,
-    icon: Users,
-    body: 'By-request group sessions and community support for schools, organizations, churches, and community programs — a warm space for processing, coping skills, reflection, and connection.',
-  },
-  {
+    eyebrow: 'Coaching · Available worldwide',
     title: 'Faith-Based Coaching',
-    href: '/offerings#faith-based-coaching',
+    href: '/coaching',
     image: CoachingImg,
     icon: Compass,
-    body: 'For Christian women carrying too much: build sustainable rhythms that make room for rest, connection, and your own needs — available worldwide.',
+    body: 'Practical coaching for Christian women who are used to carrying too much and want to build sustainable rhythms around rest, boundaries, and their everyday responsibilities.',
   },
 ]
 
@@ -108,7 +105,11 @@ function Hero() {
             </Link>
           </div>
           <p className="mt-5 text-sm font-medium tracking-wide text-[#9fb9bf]">
-            Coaching available worldwide
+            Also offering{' '}
+            <Link href="/coaching" className="text-[#e0b878] underline-offset-4 hover:underline">
+              faith-based coaching for Christian women
+            </Link>
+            , available worldwide
           </p>
           {/* max-w-5xl, not 3xl: the four items need 916px to sit on one line. */}
           <ul className="mx-auto mt-8 flex max-w-5xl flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm text-[#cdd9db]">
@@ -187,13 +188,13 @@ function Offerings() {
       <Container className="py-12 sm:py-16">
         <FadeIn className="mx-auto max-w-2xl text-center">
           <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
-            Our Offerings
+            Our Services
           </p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
-            Explore Our Holistic Offerings
+            Two Ways to Work Together
           </h2>
           <p className="mt-5 text-lg text-[var(--theme-text-secondary)]">
-            Compassionate services tailored to nurture your mental wellness and spiritual growth.
+            Therapy and coaching are distinct services. Choose the one that fits what you need right now.
           </p>
           {/* Focus areas, folded in from what used to be its own section. */}
           <ul className="mt-6 flex flex-wrap justify-center gap-2">
@@ -208,8 +209,8 @@ function Offerings() {
           </ul>
         </FadeIn>
 
-        <FadeInStagger className="mt-12 grid gap-8 md:grid-cols-3">
-          {offerings.map((o) => (
+        <FadeInStagger className="mx-auto mt-12 grid max-w-5xl gap-8 md:grid-cols-2">
+          {pathways.map((o, i) => (
             <FadeIn key={o.title}>
               <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-[var(--theme-bg-surface)] shadow-sm ring-1 ring-[var(--theme-card-border)] transition hover:shadow-md">
                 <div className="aspect-[16/9] overflow-hidden">
@@ -219,28 +220,59 @@ function Offerings() {
                     alt=""
                     className="h-full w-full object-cover"
                     placeholder="blur"
-                    sizes="(min-width: 768px) 33vw, 100vw"
+                    sizes="(min-width: 768px) 50vw, 100vw"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">
-                  <div className="flex items-center gap-3">
+                  <p className="font-display text-xs font-semibold tracking-[0.15em] text-[var(--brand-gold-ink)] uppercase">
+                    {o.eyebrow}
+                  </p>
+                  <div className="mt-3 flex items-center gap-3">
                     <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[var(--theme-bg-elevated)] text-[var(--brand-teal)]">
                       <o.icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <h3 className="font-display text-xl font-semibold text-[var(--brand-teal)]">{o.title}</h3>
+                    <h3 className="font-display text-2xl font-semibold text-[var(--brand-teal)]">{o.title}</h3>
                   </div>
                   <p className="mt-4 flex-1 text-base text-[var(--theme-text-secondary)]">{o.body}</p>
-                  <Link
-                    href={o.href}
-                    className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--brand-gold-ink)] transition hover:underline"
-                  >
-                    Learn more<span className="sr-only"> about {o.title}</span> →
-                  </Link>
+                  <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+                    {i === 0 ? (
+                      <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-6 py-3 text-base font-semibold transition">
+                        Request a Therapy Appointment
+                      </SpLink>
+                    ) : (
+                      <Link
+                        href={o.href}
+                        className="btn-gold-outline inline-flex rounded-full border px-6 py-3 text-base font-semibold transition"
+                      >
+                        Explore Coaching
+                      </Link>
+                    )}
+                    {i === 0 && (
+                      <Link
+                        href={o.href}
+                        className="inline-flex min-h-11 items-center text-sm font-semibold text-[var(--brand-gold-ink)] transition hover:underline"
+                      >
+                        Learn more<span className="sr-only"> about {o.title}</span> →
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </div>
             </FadeIn>
           ))}
         </FadeInStagger>
+
+        <FadeIn className="mx-auto mt-8 max-w-3xl text-center text-base text-[var(--theme-text-secondary)]">
+          <p>
+            Also available by request: group sessions and community support for schools, churches, and organizations.{' '}
+            <Link
+              href="/offerings#group-sessions"
+              className="font-semibold text-[var(--brand-gold-ink)] hover:underline"
+            >
+              Learn more<span className="sr-only"> about group sessions</span> →
+            </Link>
+          </p>
+        </FadeIn>
       </Container>
     </section>
   )
@@ -320,7 +352,7 @@ function FreeGuide() {
             to begin moving from overwhelm toward greater peace.
           </p>
           <a
-            href="https://online.soulfulhorizon.com/burnout-guide"
+            href={guideUrl('home')}
             className="btn-gold mt-6 inline-flex rounded-full px-7 py-3 text-base font-semibold transition"
           >
             Download the Free Guide
