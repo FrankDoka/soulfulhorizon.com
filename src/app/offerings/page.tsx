@@ -11,9 +11,10 @@ import { CTASection } from '@/components/CTASection'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
-import { SpLink } from '@/components/SimplePractice'
+import { BookingLink } from '@/components/Booking'
 import { JsonLd, servicesSchema } from '@/components/StructuredData'
 import { guideUrl, ogBase } from '@/lib/site'
+import { specialties } from '@/lib/specialties'
 
 const description =
   'Psychotherapy for adolescents and adults in New York and Tennessee, faith-based coaching for Christian women worldwide, and group sessions by request.'
@@ -35,8 +36,8 @@ const services = [
     slug: 'individual-therapy',
     title: 'Psychotherapy',
     image: IndividualImg,
-    body: 'Clinical mental health treatment for adolescents and adults in New York and Tennessee. Personalized one-on-one online sessions offer evidence-based care for anxiety, depression, trauma, and burnout. Faith integration is optional and client-led.',
-    note: 'Online · New York & Tennessee',
+    body: 'Clinical mental health treatment for adolescents and adults in New York and Tennessee. My areas of focus include trauma, anxiety, depression, chronic stress, burnout, and major life transitions. Therapy is culturally responsive, and Christian faith integration is available when desired.',
+    note: 'Online · New York & Tennessee · English, Spanish & Haitian Creole',
     cta: 'therapy',
   },
   {
@@ -129,10 +130,26 @@ export default function Offerings() {
                     </p>
                   )}
                   {s.cta === 'therapy' && (
+                    <p className="mt-5 text-base text-[var(--theme-text-secondary)]">
+                      Specialties:{' '}
+                      {specialties.map((sp, i) => (
+                        <span key={sp.slug}>
+                          {i > 0 && ' · '}
+                          <Link
+                            href={`/therapy/${sp.slug}`}
+                            className="font-semibold text-[var(--brand-gold-ink)] hover:underline"
+                          >
+                            {sp.name}
+                          </Link>
+                        </span>
+                      ))}
+                    </p>
+                  )}
+                  {s.cta === 'therapy' && (
                     <div className="mt-6">
-                      <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
+                      <BookingLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
                         Request a Therapy Appointment
-                      </SpLink>
+                      </BookingLink>
                     </div>
                   )}
                   {s.cta === 'coaching' && (
@@ -239,12 +256,12 @@ export default function Offerings() {
               please get in touch.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <SpLink
+              <BookingLink
                 contact
                 className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition"
               >
                 Inquire About Group Sessions
-              </SpLink>
+              </BookingLink>
               <Link
                 href="/contact"
                 className="btn-gold-outline inline-flex rounded-full border px-7 py-3 text-base font-semibold transition"

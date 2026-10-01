@@ -25,10 +25,10 @@ const faqs: { q: string; text: string; a: React.ReactNode }[] = [
   },
   {
     q: 'Do you take my insurance?',
-    text: 'I accept many major plans, and out-of-pocket sessions are welcome with a sliding scale available. See the insurance page or reach out to check your coverage.',
+    text: 'I accept select insurance plans, and out-of-pocket sessions are welcome with a sliding scale available. See the insurance page or reach out to check your coverage.',
     a: (
       <>
-        I accept many major plans, and out-of-pocket sessions are welcome with a sliding scale available. See the{' '}
+        I accept select insurance plans, and out-of-pocket sessions are welcome with a sliding scale available. See the{' '}
         <Link href="/insurance" className="font-semibold text-[var(--brand-gold-ink)] hover:underline">
           insurance page
         </Link>{' '}

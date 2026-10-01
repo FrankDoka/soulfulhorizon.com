@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { Logo } from '@/components/Logo'
-import { SpLink } from '@/components/SimplePractice'
+import { BookingLink } from '@/components/Booking'
 import { navLinks, site } from '@/lib/site'
 
 function Navigation() {
@@ -57,14 +57,14 @@ function AccessBlock() {
       </div>
       <ul className="mt-3 space-y-2 text-sm text-[var(--theme-text-secondary)]">
         <li>
-          <SpLink className="cursor-pointer transition hover:text-[var(--theme-text-primary)]">
+          <BookingLink className="cursor-pointer transition hover:text-[var(--theme-text-primary)]">
             Request an appointment
-          </SpLink>
+          </BookingLink>
         </li>
         <li>
-          <SpLink contact className="cursor-pointer transition hover:text-[var(--theme-text-primary)]">
+          <BookingLink contact className="cursor-pointer transition hover:text-[var(--theme-text-primary)]">
             Send a message
-          </SpLink>
+          </BookingLink>
         </li>
         <li>
           <a

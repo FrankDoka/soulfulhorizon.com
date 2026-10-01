@@ -89,7 +89,7 @@ export function servicesSchema(
           ],
       availableChannel: {
         '@type': 'ServiceChannel',
-        serviceUrl: site.bookingUrl,
+        serviceUrl: site.carepatron.bookingUrl,
         availableLanguage: [...site.languages],
       },
     })),

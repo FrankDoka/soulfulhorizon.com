@@ -29,11 +29,12 @@ const plans = [
   'Carelon Behavioral Health',
   'Cigna',
   'Horizon Blue Cross and Blue Shield of NJ',
-  'Medicaid',
+  'New York Medicaid (straight Medicaid; managed care plans not accepted)',
   'Optum',
   'Optum Live & Work Well (EAP)',
   'Oscar',
   'Oxford Health Plans',
+  'TennCare',
   'UHC Student Resources',
   'UMR',
   'UnitedHealthcare',
@@ -56,7 +57,7 @@ export default function Insurance() {
         <FadeIn>
           <h2 className="font-display text-2xl font-semibold text-[var(--brand-teal)]">Accepted plans</h2>
           <p className="mt-2 text-base text-[var(--theme-text-secondary)]">
-            We’re in-network with a wide range of major plans, including:
+            We’re in-network with these select insurance plans:
           </p>
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {plans.map((plan) => (
@@ -79,9 +80,9 @@ export default function Insurance() {
               <h3 className="font-display text-xl font-semibold text-[var(--brand-teal)]">Private-pay rates</h3>
               <dl className="mt-4 space-y-3 text-base">
                 {[
-                  { label: 'Individual session (50 min)', price: '$150' },
-                  { label: 'Extended session (60 min)', price: '$165' },
-                  { label: 'Intake / diagnostic evaluation', price: '$200' },
+                  { label: 'Individual session (50 min)', price: '$200' },
+                  { label: 'Extended session (60 min)', price: '$225' },
+                  { label: 'Intake / diagnostic evaluation', price: '$275' },
                 ].map((r) => (
                   <div key={r.label} className="flex items-baseline justify-between gap-4 border-b border-[var(--theme-border-subtle)] pb-2 last:border-b-0">
                     <dt className="text-[var(--theme-text-secondary)]">{r.label}</dt>

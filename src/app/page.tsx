@@ -13,10 +13,11 @@ import { CTASection } from '@/components/CTASection'
 import { FAQ } from '@/components/FAQ'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
-import { SpLink } from '@/components/SimplePractice'
+import { BookingLink } from '@/components/Booking'
 import { WaveDivider } from '@/components/WaveDivider'
 import { JsonLd, practiceSchema } from '@/components/StructuredData'
 import { loadPosts } from '@/lib/mdx'
+import { specialties } from '@/lib/specialties'
 import { formatDate } from '@/lib/formatDate'
 import { guideUrl } from '@/lib/site'
 
@@ -37,7 +38,7 @@ const pathways = [
     href: '/offerings#individual-therapy',
     image: IndividualImg,
     icon: UserRound,
-    body: 'Clinical mental health treatment for adolescents and adults in New York and Tennessee, for anxiety, depression, trauma, and burnout. Faith integration is optional and client-led.',
+    body: 'Clinical mental health treatment for adolescents and adults in New York and Tennessee. Areas of focus include trauma, anxiety, depression, chronic stress, burnout, and major life transitions. Therapy is culturally responsive, and Christian faith integration is available when desired.',
   },
   {
     eyebrow: 'Coaching · Available worldwide',
@@ -53,7 +54,7 @@ const steps = [
   {
     icon: MessageCircle,
     title: 'Reach Out',
-    body: 'Request a free 15-minute consultation through the secure portal — no pressure, no commitment.',
+    body: 'Book a free 15-minute consultation through our secure online booking — no pressure, no commitment.',
   },
   {
     icon: HeartHandshake,
@@ -68,10 +69,9 @@ const steps = [
 ]
 
 const trust = [
-  { icon: ShieldCheck, label: 'Licensed in NY & Tennessee' },
+  { icon: ShieldCheck, label: 'Licensed Clinical Social Worker' },
   { icon: Award, label: '10 years of experience' },
-  { icon: Languages, label: 'English · Spanish · Haitian Creole' },
-  { icon: Video, label: 'Online · Free 15-min consult' },
+  { icon: Video, label: 'Free 15-minute consultation' },
 ]
 
 function Hero() {
@@ -89,14 +89,20 @@ function Hero() {
             Online Therapy in New York &amp; Tennessee for Anxiety, Depression, Trauma, and
             Burnout
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-[#cdd9db] sm:text-xl">
-            A compassionate space to heal, grow, and feel more grounded, with Christian
-            faith integration available for clients who want it.
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-[#cdd9db] sm:text-xl">
+            Trauma-informed psychotherapy for adolescents and adults navigating anxiety, chronic stress, burnout,
+            trauma, and major life transitions, with culturally responsive care and optional Christian faith
+            integration.
+          </p>
+          <p className="mx-auto mt-4 flex max-w-3xl flex-wrap items-center justify-center gap-x-3 gap-y-1 text-base font-medium text-[#f6efe2]">
+            <span>Serving New York and Tennessee via telehealth</span>
+            <span aria-hidden="true" className="text-[var(--brand-gold-light)]">|</span>
+            <span>English • Spanish • Haitian Creole</span>
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-8 py-3.5 text-base font-semibold transition">
+            <BookingLink className="btn-gold inline-flex cursor-pointer rounded-full px-8 py-3.5 text-base font-semibold transition">
               Request an Appointment
-            </SpLink>
+            </BookingLink>
             <Link
               href="/offerings"
               className="inline-flex rounded-full border border-[#5b8893] px-8 py-3.5 text-base font-semibold text-[#f6efe2] transition hover:bg-white/10"
@@ -111,7 +117,6 @@ function Hero() {
             </Link>
             , available worldwide
           </p>
-          {/* max-w-5xl, not 3xl: the four items need 916px to sit on one line. */}
           <ul className="mx-auto mt-8 flex max-w-5xl flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm text-[#cdd9db]">
             {trust.map((t) => (
               <li key={t.label} className="flex items-center gap-2">
@@ -196,17 +201,6 @@ function Offerings() {
           <p className="mt-5 text-lg text-[var(--theme-text-secondary)]">
             Therapy and coaching are distinct services. Choose the one that fits what you need right now.
           </p>
-          {/* Focus areas, folded in from what used to be its own section. */}
-          <ul className="mt-6 flex flex-wrap justify-center gap-2">
-            {focusAreas.map((area) => (
-              <li
-                key={area}
-                className="rounded-full bg-[var(--theme-bg-surface)] px-4 py-1.5 text-sm font-medium text-[var(--brand-teal)] ring-1 ring-[var(--theme-card-border)]"
-              >
-                {area}
-              </li>
-            ))}
-          </ul>
         </FadeIn>
 
         <FadeInStagger className="mx-auto mt-12 grid max-w-5xl gap-8 md:grid-cols-2">
@@ -234,11 +228,17 @@ function Offerings() {
                     <h3 className="font-display text-2xl font-semibold text-[var(--brand-teal)]">{o.title}</h3>
                   </div>
                   <p className="mt-4 flex-1 text-base text-[var(--theme-text-secondary)]">{o.body}</p>
+                  {i === 0 && (
+                    <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-[var(--brand-teal)]">
+                      <Languages className="h-4 w-4 flex-none" aria-hidden="true" />
+                      Psychotherapy available in English, Spanish, and Haitian Creole
+                    </p>
+                  )}
                   <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
                     {i === 0 ? (
-                      <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-6 py-3 text-base font-semibold transition">
+                      <BookingLink className="btn-gold inline-flex cursor-pointer rounded-full px-6 py-3 text-base font-semibold transition">
                         Request a Therapy Appointment
-                      </SpLink>
+                      </BookingLink>
                     ) : (
                       <Link
                         href={o.href}
@@ -270,6 +270,119 @@ function Offerings() {
               className="font-semibold text-[var(--brand-gold-ink)] hover:underline"
             >
               Learn more<span className="sr-only"> about group sessions</span> →
+            </Link>
+          </p>
+        </FadeIn>
+      </Container>
+    </section>
+  )
+}
+
+const specializations = [
+  'Women who are high functioning but overwhelmed, overextended, or burned out',
+  'Individuals navigating trauma or major life transitions',
+  'Clients who want Christian faith incorporated into psychotherapy',
+  'Culturally diverse clients and families',
+  'Clients who prefer services in English, Spanish, or Haitian Creole',
+]
+
+/**
+ * Areas of particular depth within a broad psychotherapy practice — not
+ * eligibility criteria — plus links to the specialty pages.
+ */
+function TherapySpecialties() {
+  return (
+    <section className="bg-[var(--theme-bg-page)]">
+      <Container className="py-12 sm:py-16">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <FadeIn>
+            <p className="font-display text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold-ink)] uppercase">
+              Psychotherapy
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-[var(--brand-teal)] sm:text-5xl">
+              Where my practice offers particular depth
+            </h2>
+            <p className="mt-5 text-lg text-[var(--theme-text-secondary)]">
+              Soulful Horizon is a broad psychotherapy practice for adolescents and adults, with insurance and
+              private-pay options. I work especially well with:
+            </p>
+            <ul className="mt-5 space-y-3 text-base text-[var(--theme-text-secondary)]">
+              {specializations.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <svg className="mt-2 h-2 w-2 flex-none fill-[var(--brand-gold)]" viewBox="0 0 8 8" aria-hidden="true">
+                    <circle cx="4" cy="4" r="4" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 flex items-center gap-2 text-base font-semibold text-[var(--brand-teal)]">
+              <Languages className="h-5 w-5 flex-none" aria-hidden="true" />
+              Psychotherapy available in English, Spanish, and Haitian Creole.
+            </p>
+          </FadeIn>
+          <FadeInStagger className="grid content-start gap-4">
+            {specialties.map((sp) => (
+              <FadeIn key={sp.slug}>
+                <Link
+                  href={`/therapy/${sp.slug}`}
+                  className="group block rounded-3xl bg-[var(--theme-bg-surface)] p-6 shadow-sm ring-1 ring-[var(--theme-card-border)] transition hover:shadow-md"
+                >
+                  <h3 className="font-display text-xl font-semibold text-[var(--brand-teal)] group-hover:underline">
+                    {sp.name}
+                  </h3>
+                  <p className="mt-2 text-base text-[var(--theme-text-secondary)]">{sp.intro}</p>
+                </Link>
+              </FadeIn>
+            ))}
+            <FadeIn>
+              <BookingLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
+                Request a Therapy Appointment
+              </BookingLink>
+            </FadeIn>
+          </FadeInStagger>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/** Bridge between private-pay therapy positioning and the broader brand. */
+function DependableOne() {
+  return (
+    <section className="bg-[var(--theme-bg-elevated)]">
+      <Container className="py-12 sm:py-16">
+        <FadeIn className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-balance text-[var(--brand-teal)] sm:text-4xl">
+            Used to being the one everyone depends on?
+          </h2>
+          <p className="mt-5 text-lg text-[var(--theme-text-secondary)]">
+            You keep things running for your family, your work, your church, or your community, and you’re good at
+            it. But being dependable can quietly cost more than anyone sees. Whether you need clinical support for
+            burnout, anxiety, or chronic stress, or practical coaching to build more sustainable rhythms, there’s a
+            place to start here.
+          </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="/therapy/burnout-chronic-overwhelm"
+              className="btn-gold inline-flex rounded-full px-7 py-3 text-base font-semibold transition"
+            >
+              Therapy for Burnout
+            </Link>
+            <Link
+              href="/coaching"
+              className="btn-gold-outline inline-flex rounded-full border px-7 py-3 text-base font-semibold transition"
+            >
+              Faith-Based Coaching
+            </Link>
+          </div>
+          <p className="mt-5 text-sm text-[var(--theme-text-secondary)]">
+            Read:{' '}
+            <Link
+              href="/blog/when-being-the-dependable-one-becomes-too-much"
+              className="font-semibold text-[var(--brand-gold-ink)] hover:underline"
+            >
+              When Being the Dependable One Becomes Too Much
             </Link>
           </p>
         </FadeIn>
@@ -363,17 +476,6 @@ function FreeGuide() {
   )
 }
 
-const focusAreas = [
-  'Anxiety',
-  'Depression',
-  'Trauma',
-  'Faith & identity',
-  'Life transitions',
-  'Stress & burnout',
-  'Self-doubt',
-  'Adolescents & young adults',
-]
-
 function HowItWorks() {
   return (
     <section className="bg-[var(--theme-bg-page)]">
@@ -437,9 +539,9 @@ function MidPageCTA() {
           <p className="mx-auto mt-3 max-w-xl text-base text-[#cdd9db]">
             No pressure and no commitment — just a conversation about what you’re looking for.
           </p>
-          <SpLink className="btn-gold mt-6 inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
+          <BookingLink className="btn-gold mt-6 inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
             Book a Free Consultation
-          </SpLink>
+          </BookingLink>
         </FadeIn>
       </Container>
       <WaveDivider fill="var(--theme-bg-elevated)" />
@@ -454,6 +556,8 @@ export default async function Home() {
       <Hero />
       <Story />
       <Offerings />
+      <TherapySpecialties />
+      <DependableOne />
       <HowItWorks />
       <MidPageCTA />
       <Insights />

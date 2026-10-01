@@ -3,7 +3,7 @@ import Image from 'next/image'
 import CtaBg from '@public/img/sh/ocean-sunset.webp'
 import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
-import { SpLink } from '@/components/SimplePractice'
+import { BookingLink } from '@/components/Booking'
 import { WaveDivider } from '@/components/WaveDivider'
 import { site } from '@/lib/site'
 
@@ -34,9 +34,9 @@ export function CTASection({
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-[#dbe6e8]">{children}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3.5 text-base font-semibold transition">
+            <BookingLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3.5 text-base font-semibold transition">
               Request an Appointment
-            </SpLink>
+            </BookingLink>
             <a
               href={site.portalUrl}
               target="_blank"

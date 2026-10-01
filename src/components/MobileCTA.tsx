@@ -1,6 +1,6 @@
 import { Phone } from 'lucide-react'
 
-import { SpLink } from '@/components/SimplePractice'
+import { BookingLink } from '@/components/Booking'
 import { site } from '@/lib/site'
 
 /** A sticky bottom action bar on small screens, for one-tap booking/calling. */
@@ -14,9 +14,9 @@ export function MobileCTA() {
       >
         <Phone className="h-5 w-5" />
       </a>
-      <SpLink className="btn-gold flex h-11 flex-1 cursor-pointer items-center justify-center rounded-full text-base font-semibold transition">
+      <BookingLink className="btn-gold flex h-11 flex-1 cursor-pointer items-center justify-center rounded-full text-base font-semibold transition">
         Request an Appointment
-      </SpLink>
+      </BookingLink>
     </div>
   )
 }

@@ -21,6 +21,7 @@ export default function Privacy() {
           This notice describes how medical information about you may be used and disclosed, and how you can get access to
           this information. Please review it carefully.
         </p>
+        <p className="mt-4 text-base">Effective date: October 1, 2026</p>
       </PageIntro>
 
       <Container className="mt-10 sm:mt-14">
@@ -58,23 +59,58 @@ export default function Privacy() {
             </section>
 
             <section>
+              <h2 className="font-display text-2xl font-semibold text-[var(--theme-text-primary)]">Uses that require your written permission</h2>
+              <p className="mt-3">
+                Other uses and disclosures not described in this notice, including most uses of psychotherapy notes,
+                uses for marketing, and any sale of your information, will be made only with your written
+                authorization. You may revoke an authorization in writing at any time, except to the extent we have
+                already acted on it.
+              </p>
+            </section>
+
+            <section>
               <h2 className="font-display text-2xl font-semibold text-[var(--theme-text-primary)]">Your rights</h2>
               <p className="mt-3">You have the right to:</p>
               <ul className="mt-3 list-disc space-y-2 pl-6">
                 <li>Request access to and a copy of your records.</li>
                 <li>Request corrections to your health information.</li>
                 <li>Request restrictions on certain uses and disclosures.</li>
+                <li>
+                  Restrict disclosures to your health plan about services you have paid for in full, out of pocket.
+                </li>
                 <li>Request confidential communications by alternative means or at alternative locations.</li>
                 <li>Receive an accounting of certain disclosures.</li>
                 <li>Obtain a paper copy of this notice upon request.</li>
-                <li>File a complaint if you believe your privacy rights have been violated.</li>
+                <li>Be notified if a breach of your unsecured health information occurs.</li>
               </ul>
+            </section>
+
+            <section>
+              <h2 className="font-display text-2xl font-semibold text-[var(--theme-text-primary)]">Complaints</h2>
+              <p className="mt-3">
+                If you believe your privacy rights have been violated, you may file a complaint with us using the contact
+                information below, or with the U.S. Department of Health and Human Services Office for Civil Rights by
+                writing to 200 Independence Avenue, S.W., Washington, D.C. 20201, calling 1-877-696-6775, or visiting{' '}
+                <a href="https://www.hhs.gov/ocr/complaints/" className="font-semibold text-[var(--theme-accent)] hover:underline">
+                  hhs.gov/ocr/complaints
+                </a>
+                . We will not retaliate against you for filing a complaint.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-display text-2xl font-semibold text-[var(--theme-text-primary)]">Changes to this notice</h2>
+              <p className="mt-3">
+                We may change the terms of this notice, and the changes will apply to all information we have about you.
+                The current notice is always available on this page and on request.
+              </p>
             </section>
 
             <section>
               <h2 className="font-display text-2xl font-semibold text-[var(--theme-text-primary)]">Contact us</h2>
               <p className="mt-3">
-                To exercise any of these rights or to ask questions about this notice, contact us at{' '}
+                To exercise any of these rights or to ask questions about this notice, contact our Privacy Officer,
+                Emmanuelle Lajeunesse, LCSW, at{' '}
                 <a href={site.contact.phoneHref} className="font-semibold text-[var(--theme-accent)] hover:underline">
                   {site.contact.phone}
                 </a>{' '}

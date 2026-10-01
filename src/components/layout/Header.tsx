@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
 import { Logo } from '../Logo'
-import { SpLink } from '../SimplePractice'
+import { BookingLink } from '../Booking'
 import { Container } from './Container'
 import { navLinks, site } from '@/lib/site'
 
@@ -78,9 +78,9 @@ export function Header() {
             >
               Contact Us
             </Link>
-            <SpLink className="btn-gold cursor-pointer rounded-full px-5 py-2 text-sm font-semibold transition">
+            <BookingLink className="btn-gold cursor-pointer rounded-full px-5 py-2 text-sm font-semibold transition">
               Request Appointment
-            </SpLink>
+            </BookingLink>
           </div>
 
           {/* Mobile toggle */}
@@ -120,15 +120,15 @@ export function Header() {
               >
                 Client Portal
               </a>
-              <SpLink
+              <BookingLink
                 contact
                 className="btn-gold-outline mt-2 cursor-pointer rounded-full border px-5 py-3 text-center text-base font-semibold transition"
               >
                 Send a Message
-              </SpLink>
-              <SpLink className="btn-gold mt-2 cursor-pointer rounded-full px-5 py-3 text-center text-base font-semibold transition">
+              </BookingLink>
+              <BookingLink className="btn-gold mt-2 cursor-pointer rounded-full px-5 py-3 text-center text-base font-semibold transition">
                 Request Appointment
-              </SpLink>
+              </BookingLink>
             </nav>
           </Container>
         </div>

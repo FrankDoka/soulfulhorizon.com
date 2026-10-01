@@ -5,8 +5,8 @@ export const site = {
   clinician: 'Emmanuelle Lajeunesse, LCSW',
   url: 'https://soulfulhorizon.com',
   tagline: 'A safe place to heal, grow, and rediscover who you were created to be.',
-  // External booking/portal (SimplePractice — HIPAA-compliant, handles all PHI).
-  bookingUrl: 'https://soulful-horizon-lcsw.clientsecure.me/',
+  // Existing-client portal (SimplePractice) — kept during the October 2026
+  // move to Carepatron; new clients book through `carepatron` below.
   portalUrl: 'https://soulful-horizon-lcsw.clientsecure.me/sign-in',
   instagram: 'https://www.instagram.com/soulful_horizon_lcsw/',
   googleBusiness: 'https://maps.app.goo.gl/1ky2dphLennhEKgLA',
@@ -14,14 +14,14 @@ export const site = {
   therapyArea: 'New York & Tennessee',
   coachingArea: 'worldwide',
   languages: ['English', 'Spanish', 'Haitian Creole'],
-  // SimplePractice embeddable widget (opens the booking/contact overlay in-page,
-  // exactly like the original site). IDs pulled from the original embed code.
-  simplePractice: {
-    href: 'https://soulful-horizon-lcsw.clientsecure.me',
-    scopeId: '0355277d-8687-4e40-9840-d7146ddc8877',
-    scopeUri: 'soulful-horizon-lcsw',
-    applicationId: '7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b',
-    script: 'https://widget-cdn.simplepractice.com/assets/integration-1.0.js',
+  // Carepatron: new-client booking (free consultation, initial assessment,
+  // coaching discovery call). contactFormUrl: paste a Carepatron public form
+  // link (Templates → form → Share) to replace the email fallback for
+  // "Send a message".
+  carepatron: {
+    bookingUrl:
+      'https://book.carepatron.com/Soulful-Horizon-LCSW--PLLC/Emmanuelle?p=6jhe7J7wRqmJ9BfonTzrUA&s=ET6xBV.c&e=b',
+    contactFormUrl: '' as string,
   },
   contact: {
     phone: '929-900-3880',

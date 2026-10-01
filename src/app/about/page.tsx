@@ -8,7 +8,7 @@ import { CTASection } from '@/components/CTASection'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
-import { SpLink } from '@/components/SimplePractice'
+import { BookingLink } from '@/components/Booking'
 import { JsonLd, personSchema } from '@/components/StructuredData'
 import { VerificationSeal } from '@/components/VerificationSeal'
 import { ogBase, site } from '@/lib/site'
@@ -45,19 +45,19 @@ const values = [
   },
 ]
 
-// Public-domain World English Bible (WEB) text. Confirm preferred translation.
+// ESV text (matches the blog). Crossway requires the credit line rendered below.
 const scriptures = [
   {
-    ref: 'Philippians 4:6–8',
-    text: 'In nothing be anxious, but in everything, by prayer and petition with thanksgiving, let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your thoughts in Christ Jesus. Finally, brothers, whatever things are true, whatever things are honorable, whatever things are just, whatever things are pure, whatever things are lovely, whatever things are of good report — think about these things.',
+    ref: 'Philippians 4:6–8 (ESV)',
+    text: 'Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus. Finally, brothers, whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is commendable, if there is any excellence, if there is anything worthy of praise, think about these things.',
   },
   {
-    ref: '2 Corinthians 10:4–5',
-    text: 'For the weapons of our warfare are not of the flesh, but mighty before God to the throwing down of strongholds, throwing down imaginations and every high thing that is exalted against the knowledge of God, and bringing every thought into captivity to the obedience of Christ.',
+    ref: '2 Corinthians 10:4–5 (ESV)',
+    text: 'For the weapons of our warfare are not of the flesh but have divine power to destroy strongholds. We destroy arguments and every lofty opinion raised against the knowledge of God, and take every thought captive to obey Christ.',
   },
   {
-    ref: 'John 14:27',
-    text: 'Peace I leave with you. My peace I give to you; not as the world gives, I give to you. Don’t let your heart be troubled, neither let it be fearful.',
+    ref: 'John 14:27 (ESV)',
+    text: 'Peace I leave with you; my peace I give to you. Not as the world gives do I give to you. Let not your hearts be troubled, neither let them be afraid.',
   },
 ]
 
@@ -127,9 +127,9 @@ export default function About() {
               🌿 Online therapy in {site.therapyArea} · Coaching available worldwide
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <SpLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
+              <BookingLink className="btn-gold inline-flex cursor-pointer rounded-full px-7 py-3 text-base font-semibold transition">
                 Request an Appointment
-              </SpLink>
+              </BookingLink>
             </div>
           </FadeIn>
         </div>
@@ -234,6 +234,10 @@ export default function About() {
               </FadeIn>
             ))}
           </FadeInStagger>
+          <p className="mt-8 text-center text-xs text-[#9fb4b7]">
+            Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by
+            Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.
+          </p>
         </Container>
       </section>
 

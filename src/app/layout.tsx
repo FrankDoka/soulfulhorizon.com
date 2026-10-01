@@ -75,8 +75,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="flex min-h-full flex-col text-base" suppressHydrationWarning>
         <RootLayout>{children}</RootLayout>
-        {/* The SimplePractice booking/contact widget is loaded lazily on first
-            click by <SpLink> (see SimplePractice.tsx) to keep initial load fast. */}
         {/* Clean up the old service worker from earlier builds so returning
             visitors never get served a stale cached version. */}
         <script

@@ -3,7 +3,7 @@ import { type Metadata } from 'next'
 import { FadeIn } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
-import { SpLink } from '@/components/SimplePractice'
+import { BookingLink } from '@/components/Booking'
 import { JsonLd, practiceSchema } from '@/components/StructuredData'
 import { ogBase, site } from '@/lib/site'
 
@@ -36,19 +36,19 @@ export default function Contact() {
             <div className="flex h-full flex-col rounded-3xl bg-[var(--brand-teal-dark)] p-8 text-[#faf6ee]">
               <h2 className="font-display text-2xl font-semibold">Request an appointment</h2>
               <p className="mt-3 text-[#b7c6c9]">
-                New and existing clients can request appointments and securely message the practice through our
-                HIPAA-compliant booking system — it opens right here and only takes a few minutes.
+                New clients can book a free 15-minute consultation, an initial assessment, or a coaching discovery
+                call through our secure, HIPAA-compliant booking system. It only takes a few minutes.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <SpLink className="btn-gold inline-flex cursor-pointer justify-center rounded-full px-6 py-3 text-base font-semibold transition">
+                <BookingLink className="btn-gold inline-flex cursor-pointer justify-center rounded-full px-6 py-3 text-base font-semibold transition">
                   Request Appointment
-                </SpLink>
-                <SpLink
+                </BookingLink>
+                <BookingLink
                   contact
                   className="inline-flex cursor-pointer justify-center rounded-full border border-[#3a7d8c] px-6 py-3 text-base font-semibold text-[#faf6ee] transition hover:bg-[#1b4d57]"
                 >
                   Send a Message
-                </SpLink>
+                </BookingLink>
               </div>
               <p className="mt-4 text-sm text-[#9fb4b7]">
                 Already a client?{' '}

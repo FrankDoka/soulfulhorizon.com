@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { loadPosts } from '@/lib/mdx'
 import { site } from '@/lib/site'
+import { specialties } from '@/lib/specialties'
 
 // Emit as a static file at build time (required for `output: export`).
 export const dynamic = 'force-static'
@@ -15,6 +16,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/about`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/offerings`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/coaching`, changeFrequency: 'monthly', priority: 0.8 },
+    ...specialties.map((s) => ({
+      url: `${BASE_URL}/therapy/${s.slug}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
     { url: `${BASE_URL}/insurance`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/contact`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/blog`, changeFrequency: 'weekly', priority: 0.6 },

@@ -8,7 +8,7 @@ import CoachingImg from '@public/img/sh/coaching.webp'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { Container } from '@/components/layout/Container'
 import { PageIntro } from '@/components/PageIntro'
-import { SpLink } from '@/components/SimplePractice'
+import { BookingLink } from '@/components/Booking'
 import { guideUrl, ogBase, site } from '@/lib/site'
 
 // DRAFT COPY: working structure and placeholder wording, pending the owner's
@@ -96,12 +96,11 @@ export default function Coaching() {
           build sustainable rhythms around rest, boundaries, and everyday responsibilities.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <SpLink
-            contact
+          <BookingLink
             className="btn-gold inline-flex cursor-pointer justify-center rounded-full px-7 py-3 text-base font-semibold transition"
           >
-            Ask About Coaching
-          </SpLink>
+            Book a Coaching Discovery Call
+          </BookingLink>
           <a
             href={guideUrl('coaching-hero')}
             className="btn-gold-outline inline-flex justify-center rounded-full border px-7 py-3 text-base font-semibold transition"
@@ -283,15 +282,14 @@ export default function Coaching() {
               <Compass className="h-8 w-8 text-[var(--brand-teal)]" aria-hidden="true" />
               <h3 className="mt-4 font-display text-2xl font-semibold text-[var(--brand-teal)]">1:1 Faith-Based Coaching</h3>
               <p className="mt-3 flex-1 text-base text-[var(--theme-text-secondary)]">
-                Private online coaching sessions, available worldwide. Send a message to ask about availability and
-                how coaching works.
+                Private online coaching sessions, available worldwide. Start with a free 15-minute discovery call to
+                talk about what you’re carrying and whether coaching is the right fit.
               </p>
-              <SpLink
-                contact
+              <BookingLink
                 className="btn-gold mt-6 inline-flex cursor-pointer self-start rounded-full px-7 py-3 text-base font-semibold transition"
               >
-                Ask About Coaching
-              </SpLink>
+                Book a Coaching Discovery Call
+              </BookingLink>
             </div>
           </FadeIn>
           <FadeIn>
